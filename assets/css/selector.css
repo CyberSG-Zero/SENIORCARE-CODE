@@ -1,0 +1,342 @@
+body {
+    font-family: 'Fira Code Variable';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+.section{
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+    background-image: url(../images/home/Home.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.selector-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &.center{
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.2rem;
+    color: #3d2463;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.dog-selector {
+    display: flex;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.dog-option {
+    position: relative;
+    height: 80px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.dog-option:hover {
+    transform: translateY(-3px);
+
+    & .dog-name{
+        color: var(--darkpurple);
+        font-family: 'fira Code variable';
+        font-weight: 600;
+        /* background-color: var(--pink); */
+    }
+
+    & .hover-bg{
+        width: 100%;
+        transition: all 0.2s ease;
+    }
+
+    & .dog-img{
+        background: 0% / cover no-repeat;
+        background-blend-mode: none;
+    }
+}
+
+.dog-option.selected {
+    transform: translateY(-3px);
+    & .hover-bg{
+        width: 100%;
+        transition: all 0.2s ease;
+    }
+}
+
+.dog-img {
+    min-width: 100px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 10px;
+    border-radius: 4px;
+    background: var(--lightblue) 50% / cover no-repeat;
+    background-blend-mode: luminosity;
+}
+
+.hover-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--pink);
+    width: 0;
+    height: 100%;
+    z-index: -1;
+}
+
+.dog-name {
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+    text-transform: uppercase;
+    interpolate-size: allow-keywords;
+    transition: all 0.2s ease;
+    
+    &h2{
+        position: relative;
+        z-index: 5;
+    }
+}
+
+.dog-option.selected .dog-name {
+    font-family: 'fira Code variable';
+    color: var(--darkpurple);
+    font-weight: 600;
+
+}
+
+.button-row {
+    font-family: 'fira Code variable';
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: .5rem 2rem;
+    font-size: 0.9rem;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-back {
+    font-family: 'fira Code variable';
+    background-color: var(--pink);
+    color: var(--white);
+    border: 2px solid var(--darkpurple);
+}
+
+.btn-continue {
+    font-family: 'fira Code variable';
+    font-weight: 500;
+    background-color: var(--white);
+    color: var(--darkpurple);
+    border: 2px solid var(--darkpurple);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px 0px var(--darkpurple);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.arrow {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Mascota decorativa */
+.mascot {
+    position: relative;
+    width: 100%;
+    height: 15em;
+}
+
+/* Círculo verde */
+.green-circle {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: var(--green);
+    border-radius: 50%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Pantalla de nombre */
+.name-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e8e6f0;
+    z-index: 10;
+}
+
+.name-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+.name-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-container {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+input {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 350px;
+    outline: none;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #3d2463;
+    box-shadow: 0 0 0 2px rgba(61, 36, 99, 0.2);
+}
+
+.mascot-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animación del perrito */
+@keyframes dogTail {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.dog-tail {
+    animation: dogTail 1s infinite;
+    transform-origin: center bottom;
+}
+
+/* SVG del perrito */
+.dog-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Ocultar elementos del perrito por defecto */
+.dog-part {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mostrar solo las partes del perrito activo */
+.dog-part.active {
+    opacity: 1;
+}
+
+/* Partes comunes siempre visibles */
+.dog-common {
+    opacity: 1;
+}

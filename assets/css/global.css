@@ -1,0 +1,28 @@
+@import url('../../node_modules/@fontsource-variable/fira-code/index.css');
+@import url('../../node_modules/@fontsource-variable/rubik/index.css');
+
+:root{
+    --white: #FAFAFA;
+    --pink: #FF3E68;
+    --darkpurple: #180027;
+    --lightblue: #CBC5F2;
+    --green: #3CE8A5;
+
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: 'Fira Code Variable', Arial, Helvetica, sans-serif;
+    src: url();
+}
+
+
+@font-face {
+    font-family: 'Rubik', serif;
+    src: url();
+}

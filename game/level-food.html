@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/food.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Instruction Screen -->
+        <div id="instruction-screen" class="screen">
+            <div class="dog-container">
+                <svg id="instruction-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
+            </div>
+            <div class="info-text">
+                Tu mascota está hambrienta<br>
+                es tu trabajo darle <span class="highlight">su porción de comida</span><br>
+                <span class="highlight">chequea su estado de ánimo</span><br>
+                para saber la cantidad adecuada
+            </div>
+            <button id="start-btn" class="feed-btn">Comenzar</button>
+        </div>
+        
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="food-controls">
+                <div class="food-bowl">
+                    <div id="food" class="food food-level"></div>
+                    <div class="bone"></div>
+                </div>
+                <div class="controls">
+                    <button id="minus-btn" class="btn minus-btn">-</button>
+                    <div class="level-indicator">
+                        <span class="dot" id="dot1"></span>
+                        <span class="dot" id="dot2"></span>
+                        <span class="dot" id="dot3"></span>
+                    </div>
+                    <button id="plus-btn" class="btn plus-btn">+</button>
+                </div>
+            </div>
+            <div class="dog-container">
+                <svg id="game-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
+            </div>
+            <button id="feed-btn" class="feed-btn">Dar de comer</button>
+        </div>
+        
+        <!-- Results Screen -->
+        <div id="result-screen" class="screen hidden">
+            <div class="result-title">JUMM!!</div>
+            <div class="result-message" id="result-message">
+                Lo hiciste bien, pero...<br>
+                Tu mascota te comió toda la porción pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota.
+            </div>
+            <div class="recommendation">
+                <strong>Recomendación:</strong><br>
+                Te recomendamos acercarte a tu veterinario más cercano para determinar la cantidad específica que necesita tu perro según su tamaño y de esa manera mantener su alimentación y peso.
+            </div>
+            <div class="navigation">
+                <button id="retry-btn" class="nav-btn">Intentar nuevamente</button>
+                <button id="next-btn" class="nav-btn">Al siguiente nivel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template para los SVG de perros (oculto) -->
+    <div style="display: none;" id="dogTemplates">
+        <!-- Este div contendrá los templates de SVG para cada raza -->
+    </div>
+
+    <script src="../assets/js/food.js"></script>
+    <script src="../assets/js/get_items.js"></script>
+</body>
+</html>

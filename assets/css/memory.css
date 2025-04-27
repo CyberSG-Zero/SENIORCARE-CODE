@@ -1,0 +1,320 @@
+body {
+    font-family: 'Fira Code Variable';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100dvh;
+
+    padding: 4rem 2rem;
+    background-color: var(--pink);
+}
+
+
+
+.game-screen {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(247, 247, 247, 0.20) -56.38%, rgba(255, 255, 255, 0.20) 100%);
+    background-blend-mode: lighten;
+    backdrop-filter: blur(10px);
+    border: solid 4px var(--white);
+    border-radius: 8px;
+
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    max-width: 1440px;
+    width: 80%;
+    height: 80%;
+    padding: 2rem 4rem;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.instruction-box {
+    text-align: center;
+    text-wrap: balance;
+}
+
+.instruction-text {
+    background-color: var(--white);
+    font-size: 1.5rem;
+    margin: 0;
+}
+.background-span{
+    padding: 0rem 0.5rem;
+    background-color: var(--darkpurple);
+    color: var(--white);
+
+    &.purple{
+        color: var(--pink);
+    }
+}
+
+.target-object {
+    margin: 20px 0;
+}
+
+.btn {
+    font-family: 'Fira Code Variable';
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    background-color: var(--pink);
+    border: solid 2px var(--darkpurple);
+    color: white;
+    padding: 0.875rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 7px 6px 0px 0px var(--darkpurple);
+
+    &.white{
+        background-color: var(--white);
+        color: var(--darkpurple);
+        box-shadow: 7px 6px 0px 0px var(--darkpurple);
+    }
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.verification-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Estilo para el slider de cartas */
+.slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.slider-wrapper {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    cursor: grab;
+}
+
+.slider-wrapper:active {
+    cursor: grabbing;
+}
+
+.slider-cards {
+    padding: 4rem;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.card {
+    display: flex;
+    min-width: 240px;
+    height: 360px;
+    background-color: var(--white);
+    border: solid 1px var(--darkpurple);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    margin: 0 5px;
+    flex-shrink: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.selected {
+    box-shadow: 10px 10px 0px 0px #180027, 0px 4px 20px 0px rgba(39, 0, 16, 0.25);
+}
+
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.slider-btn {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 10px;
+    font-size: 20px;
+    color: #555;
+}
+
+.slider-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.card-number {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+.status-box {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    min-width: 200px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.status-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.status-text {
+    font-size: 1.225rem;
+    margin: 0;
+}
+
+.green-check {
+    background-color: var(--green);
+    width: 3em;
+    height: 3em;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-weight: bold;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 0.5rem 0.5rem;
+    box-shadow: 7px 6px 0px 0px var(--darkpurple);
+}
+
+/* SVG icons */
+.icon-bone {
+    fill: #333;
+}
+
+.icon-bone-target {
+    fill: #ffcc99;
+    stroke: #333;
+    stroke-width: 2px;
+}
+
+.decorative-shapes {
+    position: absolute;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.shape-1 {
+    top: 10%;
+    left: 5%;
+}
+
+.shape-2 {
+    top: 10%;
+    right: 5%;
+}
+
+.shape-3 {
+    bottom: 10%;
+    left: 5%;
+}
+
+.shape-4 {
+    bottom: 10%;
+    right: 5%;
+}
+
+.white-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+/* Estilos para la carta seleccionada en las pantallas de verificación */
+.selected-card {
+    margin: 15px 0;
+}
+
+/* Indicador de desplazamiento */
+.scroll-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.scroll-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.scroll-dot.active {
+    background-color: #555;
+}
+
+/* Cursor de arrastre */
+.dragging {
+    cursor: grabbing;
+}

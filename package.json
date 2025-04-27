@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@fontsource-variable/fira-code": "^5.2.5",
+    "@fontsource-variable/rubik": "^5.2.5",
+    "@fontsource/rubik": "^5.2.5"
+  }
+}

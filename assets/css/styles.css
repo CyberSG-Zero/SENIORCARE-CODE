@@ -1,0 +1,354 @@
+body {
+  font-family: 'Fira Code Variable';
+}
+
+/* ---> NAV BAR */
+.header {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+
+  & img{
+    height: 6em;
+  }
+}
+.tags{
+    display: flex;
+}
+
+
+/* ---> CONTENT */
+
+.main{
+    width: 100%;
+}
+
+.container {
+    padding: 4rem 5rem;
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    gap: 4rem;
+}
+
+/* ---> SLIDER */
+
+#slider_1 {
+    height: 100dvh;
+}
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+  
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 4rem;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.slide-content {
+  max-width: 1440px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.block{
+  display: flex;
+  max-width: 50%;
+  flex-direction: column;
+  gap: 1rem;
+
+  &.line {
+    background: var(--white);
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.block_line{
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    max-width: 60%;
+    height: 85%;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(247, 247, 247, 0.20) -56.38%, rgba(255, 255, 255, 0.20) 100%);
+    background-blend-mode: lighten;
+    backdrop-filter: blur(10px);
+    border: solid 4px var(--white);
+    border-radius: 8px;
+  }
+}
+.card{
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 450px;
+  position: relative;
+  z-index: 2;
+  font-size: 0.875rem;
+  background-color: var(--white);
+  padding: 1.225rem;
+  border-radius: 16px;
+  border: 1.5px solid var(--darkpurple);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 12px 12px 0px 0px #180027, 0px 4px 20px 0px rgba(39, 0, 16, 0.25);
+
+  & .number{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-family: 'Rubik';
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+  & img{
+    width: 100%;
+    height: 80%;
+    min-height: 330px;
+    object-fit: cover;
+  }
+
+  &.absolute{
+    position: absolute;
+    z-index: 1;
+    left: 5%;
+
+    &.right{
+      right: 5%;
+      left: auto;
+    }
+    
+    &.no_border{
+      box-shadow: none;
+    }
+  }
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--darkpurple);
+}
+
+.slide-title {
+  font-size: 3.5rem;
+  font-family: 'rubik';
+  font-weight: bold;
+  color: var(--darkpurple);
+  text-transform: uppercase;
+  line-height: 1em;
+  
+  &.white{
+    color: var(--white);
+    text-align: center;
+  }
+
+  &.card_title{
+    text-transform: none;
+    font-size: 2.5rem;
+  }
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .slide-image img {
+  max-width: 70%;
+  max-height: 70%;
+}
+  */
+.block-cta{
+  display: flex;
+  gap: 1rem;
+}
+
+.slide-cta {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  background-color: var(--pink);
+  border: solid 2px var(--darkpurple);
+  color: white;
+  padding: 0.875rem 2.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 7px 6px 0px 0px var(--darkpurple);
+
+  &.white{
+    background-color: var(--white);
+    color: var(--darkpurple);
+    box-shadow: 7px 6px 0px 0px var(--darkpurple);
+  }
+
+}
+  
+  /* Contenedor principal para la rueda de navegación */
+.navigation-wheel {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  width: 250px;
+  height: 250px;
+  z-index: 100;
+  transition: transform 1s ease;
+}
+
+/* Estilo para los botones de navegación */
+.nav-btn {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.nav-btn svg {
+  width: 3em;
+  height: 3em;
+  transform: rotate(0deg); /* Asegura que los SVGs no roten */
+  transition: transform 0.3s ease; /* Suaviza cualquier cambio */
+}
+
+.nav-btn.active {
+  background-color: white;
+  border: 2px solid var(--darkpurple);
+  transform: scale(1.1);
+}
+
+/* Animación para la rotación */
+@keyframes rotateWheel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .navigation-wheel {
+    right: 50px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .nav-btn {
+    width: 4em;
+    height: 4em;
+  }
+  
+  .nav-btn svg {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-wheel {
+    right: 30px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .nav-btn {
+    width: 3em;
+    height: 3em;
+  }
+  
+  .nav-btn svg {
+    width: 2em;
+    height: 2em;
+  }
+}
+  /* Slide Background */
+  .slide-1 {
+    background-image: url(../images/home/Home.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .slide-2 {
+    background-color: var(--pink);
+  }
+  
+  .slide-3 {
+    background-image: url(../images/home/home_3.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .slide-title {
+      font-size: 36px;
+    }
+    
+    .slide-number {
+      font-size: 40px;
+    }
+    
+    .navigation {
+      right: 10px;
+    }
+    
+    .nav-btn {
+      width: 50px;
+      height: 50px;
+    }
+  }

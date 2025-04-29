@@ -37,11 +37,16 @@
         </div>
         
         <!-- Screen 2: Card selection with slider -->
-        <div class="game-screen hidden" id="screen2">
+        <div id="screen2" class="game-screen hidden">
+            <div class="sublevel-indicator">
+                Nivel <span id="currentSubLevelDisplay">1</span>/3
+            </div>
             <div class="white-box">
                 <div class="slider-container">
-                    <div class="slider-wrapper" id="sliderWrapper">
-                        <div class="slider-cards" id="sliderCards">
+                    <div id="sliderWrapper" class="slider-wrapper">
+
+                        <!-- Baraja Nivel 1 -->
+                        <div id="deck1" class="slider-cards">
                             <div class="card" data-card="bone" data-number="01">
                                 <span class="card-number">01</span>
                                 <svg width="150" height="150" viewBox="0 0 188 189" fill="none">
@@ -82,16 +87,51 @@
                                 </svg>
                             </div>
                         </div>
-                    </div>
+
+                         <!-- Baraja Nivel 2 -->
+                        <div id="deck2" class="slider-cards hidden">
+                            <div class="card" data-card="star" data-number="01">
+                                <span class="card-number">01</span>
+                                
+                            </div>
+                            <div class="card" data-card="claw" data-number="02">
+                                <span class="card-number">02</span>
+                                <svg><!-- SVG de la garra --></svg>
+                            </div>
+                            <div class="card" data-card="crossbones" data-number="03">
+                                <span class="card-number">03</span>
+                                <svg><!-- SVG de los huesos cruzados --></svg>
+                            </div>
+
+                        </div>
+
+                        <!-- Baraja Nivel 3 -->
+                        <div id="deck3" class="slider-cards hidden" data-level="3">
+                            <div class="card" data-card="cloud" data-number="01">
+                                <span class="card-number">01</span>
+                                <svg><!-- SVG de la nube --></svg>
+                            </div>
+                            <div class="card" data-card="star" data-number="02">
+                                <span class="card-number">02</span>
+                                <svg><!-- SVG de la estrella --></svg>
+                            </div>
+                            <div class="card" data-card="bone" data-number="03">
+                                <span class="card-number">03</span>
+                                <svg><!-- SVG del hueso --></svg>
+                            </div>
+                        </div>
+
+                        <div id="sliderCards"></div>
+
                     <div class="slider-nav">
                         <button class="slider-btn" id="prevBtn">&lsaquo;</button>
                         <button class="slider-btn" id="nextBtn">&rsaquo;</button>
                     </div>
-                    <div class="scroll-indicator" id="scrollIndicator">
+                    <div id="scrollIndicator" class="scroll-indicator">
                         <!-- Dots will be added dynamically -->
                     </div>
                 </div>
-                <button class="btn white" id="selectBtn" disabled>
+                <button id="selectBtn" class="btn white" disabled>
                     <span class="btn-text">Escoger esta carta</span>
                     <span>&rsaquo;</span>
                 </button>
@@ -99,7 +139,7 @@
         </div>
         
         <!-- Screen 3: Verification -->
-        <div class="game-screen hidden" id="screen3">
+        <div id="screen3" class="game-screen hidden">
             <div class="verification-cards">
                 <svg width="100" height="100" viewBox="0 0 222 223" fill="none">
                     <g clip-path="url(#clip0_53_992)">
@@ -130,7 +170,7 @@
         </div>
         
         <!-- Screen 4: Success -->
-        <div class="game-screen hidden" id="screen4">
+        <div id="screen4" class="game-screen hidden">
             <div class="verification-cards">
                 <svg width="100" height="100" viewBox="0 0 222 223" fill="none">
                     <g clip-path="url(#clip0_53_992)">
@@ -160,7 +200,7 @@
         </div>
         
         <!-- Screen 5: Failure -->
-        <div class="game-screen hidden" id="screen5">
+        <div id="screen5" class="game-screen hidden">
             <div class="verification-cards">
                 <svg width="100" height="100" viewBox="0 0 222 223" fill="none">
                     <g clip-path="url(#clip0_53_992)">
@@ -186,8 +226,60 @@
                 <p class="status-text">Incorrecto</p>
             </div>
         </div>
+    
+
+        <!-- Screen 6: Sublevel 2 Initial -->
+        <div id="screen6" class="game-screen hidden">
+            
+            <div class="instruction-box">
+                <p class="instruction-text">Nivel 2: Encuentra <span class="background-span">la garra</span> entre las cartas.</p>
+            </div>
+            <button class="btn white" id="startBtn2">
+                Empezar
+                
+            </button>
+        </div>
+
+        <!-- Screen 7: Sublevel 3 Initial -->
+        <div class="game-screen hidden" id="screen7">
+            
+            <div class="instruction-box">
+                <p class="instruction-text">Nivel 3: Encuentra <span class="background-span">la estrella</span> entre las cartas.</p>
+            </div>
+            <button class="btn white" id="startBtn3">
+                Empezar
+            
+            </button>
+        </div>
+
+        <!-- Screen 8: Game Complete -->
+        <div id="screen8" class="game-screen hidden">
+            <div class="completion-box">
+                <svg width="120" height="120" viewBox="0 0 70 70" fill="none">
+                    <path d="M14.5835 35.0001L29.1668 49.5834L58.3335 20.4167" 
+                        stroke="#FAFAFA" stroke-width="7" 
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h2>¡Felicitaciones!</h2>
+                <p class="completion-text">Has completado todos los niveles</p>
+                <div class="score-display">
+                    <span>Puntaje Total:</span>
+                    <span id="finalScore">0</span>
+                </div>
+                <div class="button-group">
+                    <button class="btn white" id="restartGameBtn">
+                        Reiniciar Nivel
+                    </button>
+                    <button class="btn white" id="nextLevelBtn">
+                        Siguiente Nivel
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <script src="../assets/js/memory.js"></script>
+    <!-- <script type="module" src="../assets/js/cards_swapper.js"></script>
+    <script type="module" src="../assets/js/memory.js"></script> -->
+    <script src="../assets/js/memory_v2.js"></script>
 </body>
 </html>

@@ -18,6 +18,55 @@ body {
     position: relative;
 }
 
+.level-complete-screen {
+    position: absolute;
+    width: 85%;
+    height: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    background: linear-gradient(180deg, rgba(247, 247, 247, 0.20) -56.38%, rgba(255, 255, 255, 0.20) 100%);
+    background-blend-mode: lighten;
+    backdrop-filter: blur(10px);
+    border: solid 4px var(--white);
+    border-radius: 8px;
+    z-index: 100;
+
+    padding: 1.5rem 4rem;
+}
+
+.level-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.final-message {
+    color: var(--white);
+    text-align: left;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.final-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.final-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
 .screen {
     width: 100%;
     height: 100%;

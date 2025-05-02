@@ -24,6 +24,7 @@ body {
 
 
 .game-screen {
+    display: none;
     position: absolute;
     background: linear-gradient(180deg, rgba(247, 247, 247, 0.20) -56.38%, rgba(255, 255, 255, 0.20) 100%);
     background-blend-mode: lighten;
@@ -31,9 +32,7 @@ body {
     border: solid 4px var(--white);
     border-radius: 8px;
 
-    
-    display: flex;
-    flex-direction: column;
+     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -48,6 +47,21 @@ body {
 .hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+.target-object {
+    width: 10em;
+    z-index: 1;
+}
+
+.instruction-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
 }
 
 .instruction-box {
@@ -72,35 +86,39 @@ body {
 
 .target-object {
     margin: 20px 0;
+
+    & img{
+        width: 100%;
+    }
 }
 
-.btn {
+.btn, .verification-button {
     font-family: 'Fira Code Variable';
     text-decoration: none;
     display: flex;
     gap: 1rem;
     background-color: var(--pink);
     border: solid 2px var(--darkpurple);
-    color: white;
+    color: var(--white);
     padding: 0.875rem 2.5rem;
-    border-radius: 30px;
+    border-radius: 16px;
     font-weight: 600;
     font-size: 1rem;
 
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 7px 6px 0px 0px var(--darkpurple);
+    transition: all 0.3s ease;
+    
 
     &.white{
         background-color: var(--white);
         color: var(--darkpurple);
-        box-shadow: 7px 6px 0px 0px var(--darkpurple);
     }
 }
 
-.btn:hover {
-    background-color: #f0f0f0;
+.btn:hover, .verification-button:hover {
+    box-shadow: 7px 6px 0px 0px var(--darkpurple);
 }
 
 .btn:disabled {
@@ -116,18 +134,16 @@ body {
 }
 
 /* Estilo para el slider de cartas */
-.slider-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    margin: 20px 0;
-}
 
-.slider-wrapper {
+.cards-container {
     display: flex;
-    overflow-x: hidden;
+    flex-direction: row;
+    overflow-x: auto;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
+    gap: 2rem;
+    padding: 2rem;
     margin: 0 auto;
     position: relative;
     cursor: grab;
@@ -173,24 +189,47 @@ body {
     margin-top: 10px;
 }
 
-.slider-btn {
-    background-color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin: 0 10px;
-    font-size: 20px;
-    color: #555;
+.cards-container::-webkit-scrollbar {
+    height: 8px; /* Altura de la barra de scroll */
 }
 
-.slider-btn:hover {
-    background-color: #f0f0f0;
+.cards-container::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+    border-radius: 4px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.scroll-arrow.left {
+    left: 10px;
+}
+
+.scroll-arrow.right {
+    right: 10px;
+}
+
+.scroll-arrow:hover {
+    box-shadow: 5px 5px 0px 0px #180027, 0px 4px 20px 0px rgba(39, 0, 16, 0.25);
 }
 
 .card-number {
@@ -312,6 +351,13 @@ body {
 
 .scroll-dot.active {
     background-color: #555;
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Cursor de arrastre */

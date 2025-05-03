@@ -275,7 +275,7 @@ function showVerificationScreen(selectedCard) {
         setTimeout(() => {
             const level = config.levels[config.currentLevel];
             showResult(selectedCardId === level.correctId);
-        }, 1000);
+        }, 2000);
     }, 100);
 }
 
@@ -296,25 +296,27 @@ function showResult(isCorrect) {
     
     // Set result icon and text
     if (isCorrect) {
-        resultIcon.className = 'verify-icon verify-correct';
-        resultIcon.innerHTML = '✓';
-        resultProgress.textContent = 'Correcto °U°';
-        resultProgress.style.width = '100%';
+        resultIcon.className = 'status-box green-check';
+        resultIcon.style.border = 'solid 2.5px var(--darkpurple)';
+        resultIcon.innerHTML = '<svg width="40" height="40" viewBox="0 0 70 70" fill="none"><path d="M14.5835 35.0001L29.1668 49.5834L58.3335 20.4167" stroke="#FAFAFA" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        resultProgress.innerHTML = 'Correcto <span class="background-span">°U°</span>';
+        resultProgress.style.width = 'auto';
         
         // Add next level button
         resultButtons.innerHTML = `
-            <button class="next-button" id="next-level">Siguiente nivel</button>
+            <button class="btn white" id="next-level">Siguiente nivel ▶</button>
         `;
         document.getElementById('next-level').addEventListener('click', nextLevel);
     } else {
-        resultIcon.className = 'verify-icon verify-wrong';
-        resultIcon.innerHTML = '✕';
-        resultProgress.textContent = 'Incorrecto :(';
-        resultProgress.style.width = '100%';
+        resultIcon.className = 'status-box red-check';
+        resultIcon.style.border = 'solid 2.5px var(--darkpurple)';
+        resultIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l7 7M12 12l-7 -7M12 12l-7 7M12 12l7 -7"/></svg>';
+        resultProgress.innerHTML = 'Incorrecto <span class="background-span">:(</span>';
+        resultProgress.style.width = 'auto';
         
         // Add retry button
         resultButtons.innerHTML = `
-            <button class="reset-button" id="retry-level">Reintentar</button>
+            <button class="btn white" id="retry-level">◀ Reintentar</button>
         `;
         document.getElementById('retry-level').addEventListener('click', retryLevel);
     }

@@ -1,5 +1,5 @@
-@import url('../../node_modules/@fontsource-variable/fira-code/index.css');
-@import url('../../node_modules/@fontsource-variable/rubik/index.css');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap');
 
 :root{
     --white: #FAFAFA;
@@ -13,16 +13,4 @@
 * {
     margin: 0;
     box-sizing: border-box;
-}
-
-
-@font-face {
-    font-family: 'Fira Code Variable', Arial, Helvetica, sans-serif;
-    src: url();
-}
-
-
-@font-face {
-    font-family: 'Rubik', serif;
-    src: url();
 }

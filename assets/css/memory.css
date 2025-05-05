@@ -1,5 +1,5 @@
 body {
-    font-family: 'Fira Code Variable';
+    font-family: 'Fira Code';
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +75,7 @@ body {
 }
 
 .btn {
-    font-family: 'Fira Code Variable';
+    font-family: 'Fira Code';
     text-decoration: none;
     display: flex;
     gap: 1rem;

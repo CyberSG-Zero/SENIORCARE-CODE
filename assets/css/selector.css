@@ -1,5 +1,5 @@
 body {
-    font-family: 'Fira Code Variable';
+    font-family: 'Fira Code';
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,7 +101,7 @@ h1 {
 
     & .dog-name{
         color: var(--darkpurple);
-        font-family: 'fira Code variable';
+        font-family: 'fira Code';
         font-weight: 600;
         /* background-color: var(--pink); */
     }
@@ -163,14 +163,14 @@ h1 {
 }
 
 .dog-option.selected .dog-name {
-    font-family: 'fira Code variable';
+    font-family: 'fira Code';
     color: var(--darkpurple);
     font-weight: 600;
 
 }
 
 .button-row {
-    font-family: 'fira Code variable';
+    font-family: 'fira Code';
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -189,14 +189,14 @@ button {
 }
 
 .btn-back {
-    font-family: 'fira Code variable';
+    font-family: 'fira Code';
     background-color: var(--pink);
     color: var(--white);
     border: 2px solid var(--darkpurple);
 }
 
 .btn-continue {
-    font-family: 'fira Code variable';
+    font-family: 'fira Code';
     font-weight: 500;
     background-color: var(--white);
     color: var(--darkpurple);
@@ -260,7 +260,7 @@ button:disabled {
     width: 100%;
     height: 100%;
     background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: -1;
 }

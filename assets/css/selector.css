@@ -243,7 +243,7 @@ button:disabled {
 
 
 /* Pantalla de nombre */
-.name-screen {
+.name-screen, #nameScreen {
     display: none;
     position: absolute;
     top: 0;

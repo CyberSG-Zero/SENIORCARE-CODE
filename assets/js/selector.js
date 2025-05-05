@@ -3,7 +3,7 @@ const dogSelector = document.getElementById('dogSelector');
 
 const dogOptions = document.querySelectorAll('.dog-option');
 
-const nameScreen = document.getElementById('nameScreen');
+
 
 
 const dogNameInput = document.getElementById('dogName');

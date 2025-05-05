@@ -2,6 +2,7 @@ const dogSvg = document.querySelector('.dog-part');
 const saveIdDog = document.querySelector('#continueBtn');
 const repeatDog = document.querySelector('.dog-svg');
 const backToBreedBtn = document.getElementById('backToBreed');
+const nameScreen = document.getElementById('nameScreen');
 
 // Función para guardar el ID en localStorage
 function saveSVGLocalStorage(dogId) {

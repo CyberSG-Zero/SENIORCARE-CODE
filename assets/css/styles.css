@@ -215,7 +215,7 @@ body {
   gap: 1rem;
   background-color: var(--pink);
   border: solid 2px var(--darkpurple);
-  color: white;
+  color: var(--white);
   padding: 0.875rem 2.5rem;
   border-radius: 30px;
   font-weight: bold;
@@ -223,13 +223,20 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 7px 6px 0px 0px var(--darkpurple);
+  transition: all 0.2s ease;
 
   &.white{
     background-color: var(--white);
     color: var(--darkpurple);
-    box-shadow: 7px 6px 0px 0px var(--darkpurple);
+    &:hover{
+      color: var(--darkpurple);
+    }
   }
+  &:hover{
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px 0px var(--darkpurple);
+    color: var(--white);
+}
 
 }
   

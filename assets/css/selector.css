@@ -191,9 +191,7 @@ button {
 }
 
 .btn-back {
-<<<<<<< HEAD
-    font-family: 'fira Code';
-=======
+    font-family: 'Fira Code';
     text-decoration: none;
     padding: .5rem 2rem;
     font-size: 0.9rem;
@@ -204,15 +202,20 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'fira Code variable';
->>>>>>> d3d4846611c18d070316c88dbcc2c48b35bcf6c7
+    font-family: 'Fira Code';
     background-color: var(--pink);
     color: var(--white);
     border: 2px solid var(--darkpurple);
+
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 0px 0px var(--darkpurple);
+        color: var(--white);
+    }
 }
 
 .btn-continue {
-    font-family: 'fira Code';
+    font-family: 'Fira Code';
     font-weight: 500;
     background-color: var(--white);
     color: var(--darkpurple);

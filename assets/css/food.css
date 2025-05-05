@@ -2,15 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Fira Code Variable';
+    font-family: 'Fira Code';
 }
 
 body {
-<<<<<<< HEAD
     font-family: 'Fira Code', sans-serif;
     background-color: #e6e6fa;
-=======
->>>>>>> d3d4846611c18d070316c88dbcc2c48b35bcf6c7
     display: flex;
     justify-content: center;
     align-items: center;

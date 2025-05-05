@@ -1,6 +1,7 @@
 // Variables
 
-const resultMessage = document.getElementById('result-message');
+const resultMessage = document.getElementById('result-message');    
+const resultTitle = document.getElementById('result-title');
 
 // Game state
 
@@ -88,7 +89,7 @@ function updateFoodLevel(level) {
         foodImage.alt = 'Comida media';
 
         dogImage.src = 
-        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-hungry.svg`;
+        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-mid.svg`;
         dogImage.alt = 'Perro correcto';
     } else {
         foodImage.src = 
@@ -97,7 +98,7 @@ function updateFoodLevel(level) {
         foodImage.alt = 'Mucha comida';
 
         dogImage.src = 
-        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-hungry.svg`;
+        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-satisfied.svg`;
         dogImage.alt = 'Perro gordito';
     }
     
@@ -176,6 +177,7 @@ function prevLevel(currentLevel) {
 
 // Evaluate the player's choice
 function evaluateChoice() {
+    let resultHead = '';
     let resultText = '';
     let accuracy = '';
 
@@ -185,16 +187,19 @@ function evaluateChoice() {
     gameState.levels[3].points;
     
     if (gameState.totalPoints >= 25 ) {
-        resultText = "Lo hiciste bien, pero...<br>Tu mascota comió toda la porción, pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota, es importante observar su comportamiento cuidadosamente.";
+        resultHead = "Lo hiciste bien, pero...";
+        resultText = "Tu mascota comió toda la porción, pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota, es importante observar su comportamiento cuidadosamente.";
         accuracy = "cerca";
         accuracy = "perfecta";
     } else if (gameState.totalPoints >= 15) {
-        resultText = "¡Lo hiciste perfecto!<br>Tu mascota está feliz con la cantidad de comida que le diste. Has demostrado que conoces bien a tu perro.";
+        resultHead = "¡Lo hiciste perfecto!";
+        resultText = "Tu mascota está feliz con la cantidad de comida que le diste. Has demostrado que conoces bien a tu perro.";
     } else {
-        resultText = "¡Ups!<br>Tu mascota no está contenta con la cantidad de comida. Es importante observar su estado de ánimo para determinar cuánta comida necesita.";
+        resultHead = "¡Ups!";
+        resultText = "Tu mascota no está contenta con la cantidad de comida. Es importante observar su estado de ánimo para determinar cuánta comida necesita.";
         accuracy = "incorrecta";
     }
-    
+    resultTitle.innerHTML = resultHead;
     resultMessage.innerHTML = resultText;
     return accuracy;
 }

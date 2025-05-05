@@ -191,6 +191,16 @@ button {
 }
 
 .btn-back {
+    text-decoration: none;
+    padding: .5rem 2rem;
+    font-size: 0.9rem;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'fira Code variable';
     background-color: var(--pink);
     color: var(--white);
@@ -222,24 +232,8 @@ button:disabled {
     margin-right: 5px;
 }
 
-/* Mascota decorativa */
-.mascot {
-    position: relative;
-    max-height: 25em;
-}
 
-/* Círculo verde */
-.green-circle {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    background-color: var(--green);
-    border-radius: 50%;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
+
 
 /* Pantalla de nombre */
 .name-screen {
@@ -331,12 +325,18 @@ input:focus {
     border-color: var(--darkpurple);
 }
 
-.mascot-name {
+.mascot.mascot-name {
     position: relative;
+    max-height: none;
+
+    & svg {
+        height: 100%;
+        max-height: 20rem;
+    }
 }
 
 /* Animación del perrito */
-@keyframes dogTail {
+/* @keyframes dogTail {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(10deg); }
     100% { transform: rotate(0deg); }
@@ -345,7 +345,7 @@ input:focus {
 .dog-tail {
     transform: translate(-50%, -50%) scale(1);
     animation: dogTail 1s infinite;
-}
+} */
 
 /* SVG del perrito */
 .dog-svg {
@@ -353,19 +353,47 @@ input:focus {
     height: 100%;
 }
 
+/* Mascota decorativa */
+.mascot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    max-height: 25em;
+    padding-bottom: 2rem;
+}
+
+
 /* Ocultar elementos del perrito por defecto */
 .dog-part {
     position: relative;
     display: none;
     opacity: 0;
+    interpolate-size: allow-keywords;
     transition: opacity 0.3s ease;
     z-index: 3;
+    width: auto;
+    height: auto;
 }
 
 /* Mostrar solo las partes del perrito activo */
 .dog-part.active {
     display: block;
     opacity: 1;
+}
+
+/* Círculo verde */
+.green-circle {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: var(--green);
+    border-radius: 50%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
 /* Partes comunes siempre visibles */

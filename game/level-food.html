@@ -13,16 +13,21 @@
         <div class="game-container">
             <!-- Instruction Screen -->
             <section id="instructions" class="section active">
-                <div class="dog-container">
-                    <svg id="instruction-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
+                <div class="instruction-container">
+                    <div class="dog-container instruction">
+                        <svg id="instruction-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
+                    </div>
+                    <div class="instruction-text">
+                        Tu mascota está hambrienta<br>
+                        es tu trabajo darle <span class="background-span pink">su porción de comida</span><br>
+                        <span class="background-span pink purple">chequea su estado de ánimo</span><br>
+                        para saber la cantidad adecuada
+                    </div>
+                    <div class="navigation levels">
+                        <a href="./index.html" class="nav-btn white" style="font-size: 18px; padding: 12px 30px;">¡Volver al selector!</a>
+                        <button class="nav-btn" onclick="startGame()" style="font-size: 18px; padding: 12px 30px;">¡Comenzar a Jugar!</button>
+                    </div>
                 </div>
-                <div class="instruction-text">
-                    Tu mascota está hambrienta<br>
-                    es tu trabajo darle <span class="background-span pink">su porción de comida</span><br>
-                    <span class="background-span pink purple">chequea su estado de ánimo</span><br>
-                    para saber la cantidad adecuada
-                </div>
-                <button class="nav-btn" onclick="startGame()" style="font-size: 18px; padding: 12px 30px;">¡Comenzar a Jugar!</button>
             </section>
             
             <!-- Level 1 -->
@@ -41,6 +46,7 @@
                             <button class="btn btn-increase" onclick="increaseFood(1)">+</button>
                         </div>
                     </div>
+                    <div class="dog-container instruction"></div>
                     <div class="dog-container" id="dogLevel1"> 
                     </div>
                 </div>
@@ -65,34 +71,8 @@
                             <button class="btn btn-increase" onclick="increaseFood(2)">+</button>
                         </div>
                     </div>
-                    <div class="dog-container">
-                        <svg class="dog-svg dog-hungry" viewBox="0 0 200 200">
-                            <!-- Dog Head -->
-                            <ellipse cx="100" cy="90" rx="60" ry="55" class="dog-body" />
-                            <!-- Left Ear -->
-                            <ellipse cx="55" cy="50" rx="25" ry="30" transform="rotate(-20, 55, 50)" class="dog-ear" />
-                            <!-- Right Ear -->
-                            <ellipse cx="145" cy="50" rx="25" ry="30" transform="rotate(20, 145, 50)" class="dog-ear" />
-                            <!-- Eyes -->
-                            <circle cx="80" cy="75" r="5" class="dog-eye" />
-                            <circle cx="120" cy="75" r="5" class="dog-eye" />
-                            <!-- Nose -->
-                            <ellipse cx="100" cy="95" rx="15" ry="10" class="dog-nose" />
-                            <!-- Mouth -->
-                            <path d="M85 110 Q100 120 115 110" class="dog-mouth" stroke-linecap="round" />
-                            <!-- Collar -->
-                            <path d="M50 110 Q100 130 150 110" class="dog-collar" stroke="#6A5ACD" stroke-width="5" />
-                            <!-- Body -->
-                            <ellipse cx="100" cy="160" rx="40" ry="30" class="dog-body" />
-                            <!-- Legs -->
-                            <rect x="70" cy="170" width="15" height="30" rx="5" class="dog-body" />
-                            <rect x="115" cy="170" width="15" height="30" rx="5" class="dog-body" />
-                            <!-- Paws -->
-                            <ellipse cx="77" cy="195" rx="10" ry="5" class="dog-body" />
-                            <ellipse cx="123" cy="195" rx="10" ry="5" class="dog-body" />
-                            <!-- Tail -->
-                            <path d="M140 160 Q155 145 160 160" class="dog-body" stroke="#FF7F50" stroke-width="10" stroke-linecap="round" />
-                        </svg>
+                    <div class="dog-container instruction"></div>
+                    <div class="dog-container" id="dogLevel2">
                     </div>
                 </div>
                 <div class="navigation levels">
@@ -118,34 +98,8 @@
                             <button class="btn btn-increase" onclick="increaseFood(3)">+</button>
                         </div>
                     </div>
-                    <div class="dog-container">
-                        <svg class="dog-svg dog-hungry" viewBox="0 0 200 200">
-                            <!-- Dog Head -->
-                            <ellipse cx="100" cy="90" rx="60" ry="55" class="dog-body" />
-                            <!-- Left Ear -->
-                            <ellipse cx="55" cy="50" rx="25" ry="30" transform="rotate(-20, 55, 50)" class="dog-ear" />
-                            <!-- Right Ear -->
-                            <ellipse cx="145" cy="50" rx="25" ry="30" transform="rotate(20, 145, 50)" class="dog-ear" />
-                            <!-- Eyes -->
-                            <circle cx="80" cy="75" r="5" class="dog-eye" />
-                            <circle cx="120" cy="75" r="5" class="dog-eye" />
-                            <!-- Nose -->
-                            <ellipse cx="100" cy="95" rx="15" ry="10" class="dog-nose" />
-                            <!-- Mouth -->
-                            <path d="M85 110 Q100 120 115 110" class="dog-mouth" stroke-linecap="round" />
-                            <!-- Collar -->
-                            <path d="M50 110 Q100 130 150 110" class="dog-collar" stroke="#6A5ACD" stroke-width="5" />
-                            <!-- Body -->
-                            <ellipse cx="100" cy="160" rx="40" ry="30" class="dog-body" />
-                            <!-- Legs -->
-                            <rect x="70" cy="170" width="15" height="30" rx="5" class="dog-body" />
-                            <rect x="115" cy="170" width="15" height="30" rx="5" class="dog-body" />
-                            <!-- Paws -->
-                            <ellipse cx="77" cy="195" rx="10" ry="5" class="dog-body" />
-                            <ellipse cx="123" cy="195" rx="10" ry="5" class="dog-body" />
-                            <!-- Tail -->
-                            <path d="M140 160 Q155 145 160 160" class="dog-body" stroke="#FF7F50" stroke-width="10" stroke-linecap="round" />
-                        </svg>
+                    <div class="dog-container instruction"></div>
+                    <div class="dog-container" id="dogLevel3">
                     </div>
                 </div>
                 
@@ -167,8 +121,13 @@
 
                     <div class="result-container">
                         <div class="result-title">¡JUMM!!</div>
-                        <div class="result-message" id="result-message">
-                            Lo hiciste bien, pero... Tu mascota ha comido todo lo posible para poder llenar su pozo sin fondo. A veces cuando quieres satisfacer a tu mascota puedes terminar sobrealimentándola y eso no es bueno.
+                        <div class="result-message">
+                            <h3 id="result-title">
+                                Lo Hiciste!
+                            </h3>
+                            <p id="result-message">
+                                Lo hiciste bien, pero... Tu mascota ha comido todo lo posible para poder llenar su pozo sin fondo. A veces cuando quieres satisfacer a tu mascota puedes terminar sobrealimentándola y eso no es bueno.
+                            </p>
                         </div>
                         <div class="recommendation">
                             <!-- Vet Icon -->

@@ -1,6 +1,180 @@
-import { CardSlider } from '../js/cards_swapper.js';
+/**
+ * Juego de Selección de Cartas con CardSlider Integrado
+ * Una versión que evita el uso de importaciones
+ */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ===== CLASE CARDSLIDER INTEGRADA =====
+    class CardSlider {
+        constructor(config) {
+            this.sliderWrapper = config.sliderWrapper;
+            this.sliderCards = config.sliderCards;
+            this.cards = Array.from(config.cards);
+            this.prevBtn = config.prevBtn;
+            this.nextBtn = config.nextBtn;
+            this.scrollIndicator = config.scrollIndicator;
+            this.slideWidth = config.slideWidth || 110;
+            this.visibleCards = config.visibleCards || 3;
+            this.currentPosition = 0;
+            this.isDragging = false;
+            this.startX = 0;
+            this.scrollLeft = 0;
+            
+            this.initialize();
+        }
+        
+        initialize() {
+            // Configurar el slider
+            if (this.sliderCards) {
+                this.renderCards();
+                this.updateButtonStates();
+                this.createScrollIndicators();
+            }
+            
+            if (this.prevBtn) {
+                this.prevBtn.addEventListener('click', () => this.slidePrev());
+            }
+            
+            if (this.nextBtn) {
+                this.nextBtn.addEventListener('click', () => this.slideNext());
+            }
+            
+            // Añadir funcionalidad de arrastre
+            this.setupDragEvents();
+        }
+        
+        renderCards() {
+            if (!this.sliderCards) return;
+            
+            this.sliderCards.innerHTML = '';
+            this.cards.forEach(card => {
+                this.sliderCards.appendChild(card);
+            });
+        }
+        
+        updateCards(newCards) {
+            if (!newCards) return;
+            
+            this.cards = Array.from(newCards);
+            this.renderCards();
+            this.currentPosition = 0;
+            this.updateButtonStates();
+            this.createScrollIndicators();
+        }
+        
+        slideNext() {
+            const maxPosition = Math.max(0, this.cards.length - this.visibleCards);
+            if (this.currentPosition < maxPosition) {
+                this.currentPosition++;
+                this.updateSliderPosition();
+            }
+        }
+        
+        slidePrev() {
+            if (this.currentPosition > 0) {
+                this.currentPosition--;
+                this.updateSliderPosition();
+            }
+        }
+        
+        updateSliderPosition() {
+            if (!this.sliderCards) return;
+            
+            const position = -this.currentPosition * this.slideWidth;
+            this.sliderCards.style.transform = `translateX(${position}px)`;
+            this.updateButtonStates();
+            this.updateScrollIndicators();
+        }
+        
+        updateButtonStates() {
+            if (this.prevBtn) {
+                this.prevBtn.disabled = this.currentPosition === 0;
+            }
+            
+            if (this.nextBtn) {
+                const maxPosition = Math.max(0, this.cards.length - this.visibleCards);
+                this.nextBtn.disabled = this.currentPosition >= maxPosition;
+            }
+        }
+        
+        createScrollIndicators() {
+            if (!this.scrollIndicator) return;
+            
+            this.scrollIndicator.innerHTML = '';
+            const indicatorCount = Math.max(1, this.cards.length - this.visibleCards + 1);
+            
+            for (let i = 0; i < indicatorCount; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('indicator-dot');
+                if (i === this.currentPosition) {
+                    dot.classList.add('active');
+                }
+                this.scrollIndicator.appendChild(dot);
+            }
+        }
+        
+        updateScrollIndicators() {
+            if (!this.scrollIndicator) return;
+            
+            const dots = this.scrollIndicator.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === this.currentPosition) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        setupDragEvents() {
+            if (!this.sliderCards) return;
+            
+            this.sliderCards.addEventListener('mousedown', (e) => this.startDragging(e));
+            this.sliderCards.addEventListener('touchstart', (e) => this.startDragging(e.touches[0]), { passive: true });
+            this.sliderCards.addEventListener('mouseup', () => this.stopDragging());
+            this.sliderCards.addEventListener('touchend', () => this.stopDragging());
+            this.sliderCards.addEventListener('mouseleave', () => this.stopDragging());
+            this.sliderCards.addEventListener('mousemove', (e) => this.drag(e));
+            this.sliderCards.addEventListener('touchmove', (e) => this.drag(e.touches[0]), { passive: true });
+        }
+        
+        startDragging(e) {
+            this.isDragging = true;
+            this.startX = e.pageX - this.sliderCards.offsetLeft;
+            this.scrollLeft = this.currentPosition * this.slideWidth;
+        }
+        
+        stopDragging() {
+            this.isDragging = false;
+        }
+        
+        drag(e) {
+            if (!this.isDragging) return;
+            
+            e.preventDefault();
+            const x = e.pageX - this.sliderCards.offsetLeft;
+            const walk = x - this.startX;
+            
+            const position = this.scrollLeft - walk;
+            const maxPosition = (this.cards.length - this.visibleCards) * this.slideWidth;
+            
+            if (position < 0) {
+                this.currentPosition = 0;
+            } else if (position > maxPosition) {
+                this.currentPosition = Math.floor(maxPosition / this.slideWidth);
+            } else {
+                this.currentPosition = Math.round(position / this.slideWidth);
+            }
+            
+            this.updateSliderPosition();
+        }
+        
+        reset() {
+            this.currentPosition = 0;
+            this.updateSliderPosition();
+        }
+    }
+
     // ===== VARIABLES DEL JUEGO =====
     let slider = null;
     let currentDeck = null;
@@ -54,8 +228,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Elementos del slider
     const sliderWrapper = document.getElementById('sliderWrapper');
-    const sliderCards = document.getElementById('sliderCards');
-    const scrollIndicator = document.getElementById('scrollIndicator');
+    const sliderCards = document.getElementById('slider-cards');
+    const scrollIndicator = document.getElementById('slider-nav');
     
     // Elementos de UI
     const pointsDisplay = document.getElementById('points');

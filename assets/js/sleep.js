@@ -32,7 +32,7 @@ let squareAudios = [];
 const gameContainer = document.getElementById('game-container');
 const flashlight = document.querySelector('.flashlight');
 const volumeSlider = document.getElementById('volume-control');
-const correctPopup = document.getElementById('correct-popup');
+const correctPopup = document.querySelector('.popup.correct');
 const incorrectPopup = document.getElementById('incorrect-popup');
 const introScreens = [
     document.getElementById('intro-level1'),
@@ -210,7 +210,8 @@ function checkAnswer(index, level) {
     
     // Check if answer is correct
     if (levelData[index].correct) {
-        correctPopup.style.display = 'flex';
+        const correctPopupForLevel = document.getElementById(`correct-popup-level${level}`);
+        correctPopupForLevel.style.display = 'flex';
     } else {
         incorrectPopup.style.display = 'flex';
         
@@ -231,7 +232,10 @@ function closePopup() {
 
 // Go to next level
 function nextLevel() {
-    correctPopup.style.display = 'none';
+    const allCorrectPopups = document.querySelectorAll('.popup.correct, [id^="correct-popup-level"]');
+    allCorrectPopups.forEach(popup => {
+        popup.style.display = 'none';
+    });
     
     const nextLevel = gameState.currentLevel + 1;
     if (nextLevel < gameState.maxLevels) {

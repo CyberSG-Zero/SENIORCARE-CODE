@@ -1,124 +1,252 @@
+// Variables
+
+const resultMessage = document.getElementById('result-message');    
+const resultTitle = document.getElementById('result-title');
+
 // Game state
-let foodLevel = 0; // 0 = small, 1 = medium, 2 = large
-let correctLevel = Math.floor(Math.random() * 3); // Randomly determine correct level
-let dogMoods = [
-    // Sad mood (hungry) - needs large portion
-    "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxNDAiIHJ4PSI2MCIgcnk9IjQwIiBmaWxsPSIjRkY5OTgwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MCIgcj0iNDAiIGZpbGw9IiNGRjk5ODAiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iNzAiIHI9IjE1IiBmaWxsPSIjOEIwMDAwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSI3MCIgcj0iMTUiIGZpbGw9IiM4QjAwMDAiLz4KICAgIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSI5MCIgcng9IjEwIiByeT0iNSIgZmlsbD0iYmxhY2siLz4KICAgIDxwYXRoIGQ9Ik0xMzUgMTYwIFEgMTAwIDE0MCAsIDY1IDE2MCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIi8+CiAgICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMjAiIHI9IjEwIiBmaWxsPSIjOEIwMDAwIi8+Cjwvc3ZnPg==",
-    // Normal mood - needs medium portion
-    "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxNDAiIHJ4PSI2MCIgcnk9IjQwIiBmaWxsPSIjRkY5OTgwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MCIgcj0iNDAiIGZpbGw9IiNGRjk5ODAiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iNzAiIHI9IjE1IiBmaWxsPSIjOEIwMDAwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSI3MCIgcj0iMTUiIGZpbGw9IiM4QjAwMDAiLz4KICAgIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSI5MCIgcng9IjEwIiByeT0iNSIgZmlsbD0iYmxhY2siLz4KICAgIDxwYXRoIGQ9Ik02NSAxNjAgTCAxMzUgMTYwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KICAgIDxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iMTAiIGZpbGw9IiM4QjAwMDAiLz4KPC9zdmc+",
-    // Happy mood - needs small portion
-    "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxNDAiIHJ4PSI2MCIgcnk9IjQwIiBmaWxsPSIjRkY5OTgwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MCIgcj0iNDAiIGZpbGw9IiNGRjk5ODAiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iNzAiIHI9IjE1IiBmaWxsPSIjOEIwMDAwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSI3MCIgcj0iMTUiIGZpbGw9IiM4QjAwMDAiLz4KICAgIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSI5MCIgcng9IjEwIiByeT0iNSIgZmlsbD0iYmxhY2siLz4KICAgIDxwYXRoIGQ9Ik0xMzUgMTQwIFEgMTAwIDE2MCAsIDY1IDE0MCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIi8+CiAgICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMjAiIHI9IjEwIiBmaWxsPSIjOEIwMDAwIi8+Cjwvc3ZnPg=="
-];
 
-// Reverse the logic - if dog is sad (index 0), it needs more food (level 2)
-// If dog is happy (index 2), it needs less food (level 0)
-correctLevel = 2 - correctLevel;
+const gameState = {
+    currentLevel: 1,
+    levels: {
+        1: { foodState: 0, points: 0 },
+        2: { foodState: 0, points: 0 },
+        3: { foodState: 0, points: 0 }
+    },
+    totalPoints: 0
+};
 
-// Element references
-const instructionScreen = document.getElementById('instruction-screen');
-const gameScreen = document.getElementById('game-screen');
-const resultScreen = document.getElementById('result-screen');
-const startBtn = document.getElementById('start-btn');
-const minusBtn = document.getElementById('minus-btn');
-const plusBtn = document.getElementById('plus-btn');
-const feedBtn = document.getElementById('feed-btn');
-const retryBtn = document.getElementById('retry-btn');
-const nextBtn = document.getElementById('next-btn');
-const dogMood = document.getElementById('dog-mood');
-const foodElement = document.getElementById('food');
-const dots = [
-    document.getElementById('dot1'),
-    document.getElementById('dot2'),
-    document.getElementById('dot3')
-];
-const resultMessage = document.getElementById('result-message');
+// Food states point values
+const foodStatePoints = {
+    0: 2.5,  // Comio poco
+    1: 5,    // Comio bien
+    2: 10    // Comio mucho
+};
+
+
+// ------------------------------------------------
 
 // Initialize the game
 function initGame() {
-    // Set dog mood based on correct level
-    dogMood.src = dogMoods[correctLevel];
-    
-    // Reset food level
-    setFoodLevel(0);
+    // updateDogState(1);
+    updateFoodLevel(1);
 }
 
-// Update the food level visually
-function setFoodLevel(level) {
-    foodLevel = level;
-    
-    // Update food height in bowl
-    const heights = [10, 25, 40]; // Small, medium, large in px
-    foodElement.style.height = heights[level] + 'px';
-    
-    // Update dots
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i <= level);
-    });
+// Start the game from instructions screen
+function startGame() {
+    document.getElementById('instructions').classList.remove('active');
+    document.getElementById('level1').classList.add('active');
 }
 
-// Show screen by ID and hide others
-function showScreen(screenId) {
-    instructionScreen.classList.toggle('hidden', screenId !== 'instruction-screen');
-    gameScreen.classList.toggle('hidden', screenId !== 'game-screen');
-    resultScreen.classList.toggle('hidden', screenId !== 'result-screen');
+// Update the dog's state based on food level
+// function updateDogState(level) {
+//     const dogSvg = document.querySelector(`#level${level} .dog-svg`);
+//     const foodState = gameState.levels[level].foodState;
+    
+//     // Remove previous classes
+//     dogSvg.classList.remove('dog-hungry', 'dog-satisfied', 'dog-full');
+    
+//     // Add new class based on food state
+//     if (foodState === 0) {
+//         dogSvg.classList.add('dog-hungry');
+//     } else if (foodState === 1) {
+//         dogSvg.classList.add('dog-satisfied');
+//     } else {
+//         dogSvg.classList.add('dog-full');
+//     }
+// }
+
+// Update food level visualization
+function updateFoodLevel(level) {
+    const savedDogId = localStorage.getItem('selectedDogId');
+    
+    const foodContainer = document.getElementById(`foodLevel${level}`);
+    const dogContainer = document.getElementById(`dogLevel${level}`);
+    const foodState = gameState.levels[level].foodState;
+    
+    // Limpiar el contenedor antes de agregar la nueva imagen
+    foodContainer.innerHTML = '';
+    dogContainer.innerHTML = '';
+    
+    // Crear y agregar la imagen SVG según el estado
+    const foodImage = document.createElement('img');
+    const dogImage = document.createElement('img');
+    
+    
+    if (foodState === 0) {
+        foodImage.src = 
+        `../../assets/svg/level_1/food_states/food-low.svg`;
+        // SVG para poca comida
+        foodImage.alt = 'Poca comida';
+
+        dogImage.src = 
+        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-hungry.svg`;
+        dogImage.alt = 'Perro hambiento';
+
+    } else if (foodState === 1) {
+        foodImage.src = 
+        `../../assets/svg/level_1/food_states/food-mid.svg`; 
+         // SVG para comida media
+        foodImage.alt = 'Comida media';
+
+        dogImage.src = 
+        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-mid.svg`;
+        dogImage.alt = 'Perro correcto';
+    } else {
+        foodImage.src = 
+        `../../assets/svg/level_1/food_states/food-high.svg`; 
+        // SVG para mucha comida
+        foodImage.alt = 'Mucha comida';
+
+        dogImage.src = 
+        `../../assets/svg/level_1/dog_states/${savedDogId}-dog-satisfied.svg`;
+        dogImage.alt = 'Perro gordito';
+    }
+    
+    // Estilo para la imagen (ajustar según necesites)
+    foodImage.style.width = '550';
+    foodImage.style.height = '550';
+    dogImage.style.width = '550';
+    dogImage.style.height = '550';
+    
+    // Agregar la imagen al contenedor
+    foodContainer.appendChild(foodImage);
+    dogContainer.appendChild(dogImage);
+    
+    // Actualizar los puntos (mantenemos esta funcionalidad igual)
+    gameState.levels[level].points = foodStatePoints[foodState];
+}
+
+// Increase food level
+function increaseFood(level) {
+    if (gameState.levels[level].foodState < 2) {
+        gameState.levels[level].foodState++;
+        // updateDogState(level);
+        updateFoodLevel(level);
+        createFoodParticles(level);
+    }
+}
+
+// Decrease food level
+function decreaseFood(level) {
+    if (gameState.levels[level].foodState > 0) {
+        gameState.levels[level].foodState--;
+        // updateDogState(level);
+        updateFoodLevel(level);
+    }
+}
+
+// Create food particles animation
+function createFoodParticles(level) {
+    const foodBowl = document.querySelector(`#level${level} .food-bowl`);
+    const particlesContainer = document.createElement('div');
+    particlesContainer.classList.add('food-particles');
+    foodBowl.appendChild(particlesContainer);
+    
+    for (let i = 0; i < 10; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 0.5}s`;
+        particlesContainer.appendChild(particle);
+    }
+    
+    setTimeout(() => {
+        particlesContainer.remove();
+    }, 1500);
+}
+
+// Navigate to next level
+function nextLevel(currentLevel) {
+    if (currentLevel < 3) {
+        document.getElementById(`level${currentLevel}`).classList.remove('active');
+        document.getElementById(`level${currentLevel+1}`).classList.add('active');
+        gameState.currentLevel = currentLevel + 1;
+        // updateDogState(gameState.currentLevel);
+        updateFoodLevel(gameState.currentLevel);
+    }
+}
+
+// Navigate to previous level
+function prevLevel(currentLevel) {
+    if (currentLevel > 1) {
+        document.getElementById(`level${currentLevel}`).classList.remove('active');
+        document.getElementById(`level${currentLevel-1}`).classList.add('active');
+        gameState.currentLevel = currentLevel - 1;
+    }
 }
 
 // Evaluate the player's choice
 function evaluateChoice() {
+    let resultHead = '';
     let resultText = '';
     let accuracy = '';
+
+    gameState.totalPoints = 
+    gameState.levels[1].points + 
+    gameState.levels[2].points + 
+    gameState.levels[3].points;
     
-    if (foodLevel === correctLevel) {
-        resultText = "¡Lo hiciste perfecto!<br>Tu mascota está feliz con la cantidad de comida que le diste. Has demostrado que conoces bien a tu perro.";
-        accuracy = "perfecta";
-    } else if (Math.abs(foodLevel - correctLevel) === 1) {
-        resultText = "Lo hiciste bien, pero...<br>Tu mascota comió toda la porción, pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota, es importante observar su comportamiento cuidadosamente.";
+    if (gameState.totalPoints >= 25 ) {
+        resultHead = "Lo hiciste bien, pero...";
+        resultText = "Tu mascota comió toda la porción, pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota, es importante observar su comportamiento cuidadosamente.";
         accuracy = "cerca";
+        accuracy = "perfecta";
+    } else if (gameState.totalPoints >= 15) {
+        resultHead = "¡Lo hiciste perfecto!";
+        resultText = "Tu mascota está feliz con la cantidad de comida que le diste. Has demostrado que conoces bien a tu perro.";
     } else {
-        resultText = "¡Ups!<br>Tu mascota no está contenta con la cantidad de comida. Es importante observar su estado de ánimo para determinar cuánta comida necesita.";
+        resultHead = "¡Ups!";
+        resultText = "Tu mascota no está contenta con la cantidad de comida. Es importante observar su estado de ánimo para determinar cuánta comida necesita.";
         accuracy = "incorrecta";
     }
-    
+    resultTitle.innerHTML = resultHead;
     resultMessage.innerHTML = resultText;
     return accuracy;
 }
 
-// Event Listeners
-startBtn.addEventListener('click', () => {
-    showScreen('game-screen');
-    initGame();
-});
+// Finish the game and show results
+function finishGame() {
+    // Calculate total points
+    gameState.totalPoints = 
+        gameState.levels[1].points + 
+        gameState.levels[2].points + 
+        gameState.levels[3].points;
+    
+    // Hide current level
+    document.getElementById(`level${gameState.currentLevel}`).classList.remove('active');
 
-minusBtn.addEventListener('click', () => {
-    if (foodLevel > 0) {
-        setFoodLevel(foodLevel - 1);
-    }
-});
-
-plusBtn.addEventListener('click', () => {
-    if (foodLevel < 2) {
-        setFoodLevel(foodLevel + 1);
-    }
-});
-
-feedBtn.addEventListener('click', () => {
     evaluateChoice();
-    showScreen('result-screen');
-});
+    
+    // Show results section
+    const resultsSection = document.getElementById('results');
+    resultsSection.classList.add('active');
+}
 
-retryBtn.addEventListener('click', () => {
-    correctLevel = 2 - Math.floor(Math.random() * 3);
-    showScreen('game-screen');
-    initGame();
-});
-
-nextBtn.addEventListener('click', () => {
-    correctLevel = 2 - Math.floor(Math.random() * 3);
-    showScreen('game-screen');
-    initGame();
-});
+// Restart the game
+function restartGame() {
+    // Reset game state
+    gameState.currentLevel = 1;
+    gameState.levels = {
+        1: { foodState: 0, points: 0 },
+        2: { foodState: 0, points: 0 },
+        3: { foodState: 0, points: 0 }
+    };
+    gameState.totalPoints = 0;
+    
+    // Hide results section
+    document.getElementById('results').classList.remove('active');
+    
+    // Show level 1
+    document.getElementById('instructions').classList.add('active');
+    
+    // Reset all food levels and dog states
+    for (let i = 1; i <= 3; i++) {
+        // updateDogState(i);
+        updateFoodLevel(i);
+    }
+}
 
 // Initialize the game when the page loads
 window.onload = function() {
-    showScreen('instruction-screen');
+    initGame();
 };

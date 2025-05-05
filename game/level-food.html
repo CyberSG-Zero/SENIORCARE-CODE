@@ -6,70 +6,174 @@
     <title>Food</title>
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/food.css">
+    <link rel="icon" type="image/x-icon" href="../assets/svg/favicon.svg">
 </head>
 <body>
-    <div class="game-container">
-        <!-- Instruction Screen -->
-        <div id="instruction-screen" class="screen">
-            <div class="dog-container">
-                <svg id="instruction-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
-            </div>
-            <div class="info-text">
-                Tu mascota está hambrienta<br>
-                es tu trabajo darle <span class="highlight">su porción de comida</span><br>
-                <span class="highlight">chequea su estado de ánimo</span><br>
-                para saber la cantidad adecuada
-            </div>
-            <button id="start-btn" class="feed-btn">Comenzar</button>
-        </div>
-        
-        <!-- Game Screen -->
-        <div id="game-screen" class="screen hidden">
-            <div class="food-controls">
-                <div class="food-bowl">
-                    <div id="food" class="food food-level"></div>
-                    <div class="bone"></div>
-                </div>
-                <div class="controls">
-                    <button id="minus-btn" class="btn minus-btn">-</button>
-                    <div class="level-indicator">
-                        <span class="dot" id="dot1"></span>
-                        <span class="dot" id="dot2"></span>
-                        <span class="dot" id="dot3"></span>
+    <section class="container">
+        <div class="game-container">
+            <!-- Instruction Screen -->
+            <section id="instructions" class="section active">
+                <div class="instruction-container">
+                    <div class="dog-container instruction">
+                        <svg id="instruction-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
                     </div>
-                    <button id="plus-btn" class="btn plus-btn">+</button>
+                    <div class="instruction-text">
+                        Tu mascota está hambrienta<br>
+                        es tu trabajo darle <span class="background-span pink">su porción de comida</span><br>
+                        <span class="background-span pink purple">chequea su estado de ánimo</span><br>
+                        para saber la cantidad adecuada
+                    </div>
+                    <div class="navigation levels">
+                        <a href="./index.html" class="nav-btn white" style="font-size: 18px; padding: 12px 30px;">¡Volver al selector!</a>
+                        <button class="nav-btn" onclick="startGame()" style="font-size: 18px; padding: 12px 30px;">¡Comenzar a Jugar!</button>
+                    </div>
                 </div>
-            </div>
-            <div class="dog-container">
-                <svg id="game-dog" class="dog-svg" viewBox="0 0 150 150"></svg>
-            </div>
-            <button id="feed-btn" class="feed-btn">Dar de comer</button>
-        </div>
-        
-        <!-- Results Screen -->
-        <div id="result-screen" class="screen hidden">
-            <div class="result-title">JUMM!!</div>
-            <div class="result-message" id="result-message">
-                Lo hiciste bien, pero...<br>
-                Tu mascota te comió toda la porción pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota.
-            </div>
-            <div class="recommendation">
-                <strong>Recomendación:</strong><br>
-                Te recomendamos acercarte a tu veterinario más cercano para determinar la cantidad específica que necesita tu perro según su tamaño y de esa manera mantener su alimentación y peso.
-            </div>
-            <div class="navigation">
-                <button id="retry-btn" class="nav-btn">Intentar nuevamente</button>
-                <button id="next-btn" class="nav-btn">Al siguiente nivel</button>
-            </div>
-        </div>
-    </div>
+            </section>
+            
+            <!-- Level 1 -->
+            <section id="level1" class="section">
+                <div class="title">Desayuno</div>
+                <div class="level-container">
+                    <div class="food-bowl">
+                        <div class="food-container" id="foodLevel1">
+                        </div>
+                        <div class="food-controls">
+                            <button class="btn btn-decrease" onclick="decreaseFood(1)">-</button>
+                            <div class="food-indicator">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <button class="btn btn-increase" onclick="increaseFood(1)">+</button>
+                        </div>
+                    </div>
+                    <div class="dog-container instruction"></div>
+                    <div class="dog-container" id="dogLevel1"> 
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="nav-btn" id="level1-next" onclick="nextLevel(1)">Siguiente Comida</button>
+                </div>
+            </section>
 
-    <!-- Template para los SVG de perros (oculto) -->
-    <div style="display: none;" id="dogTemplates">
-        <!-- Este div contendrá los templates de SVG para cada raza -->
-    </div>
+            <!-- Level 2 -->
+            <section id="level2" class="section">
+                <div class="title">Almuerzo</div>
+                <div class="level-container">
+                    <div class="food-bowl">
+                        <div class="food-container" id="foodLevel2">
+                        </div>
+                        <div class="food-controls">
+                            <button class="btn btn-decrease" onclick="decreaseFood(2)">-</button>
+                            <div class="food-indicator">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <button class="btn btn-increase" onclick="increaseFood(2)">+</button>
+                        </div>
+                    </div>
+                    <div class="dog-container instruction"></div>
+                    <div class="dog-container" id="dogLevel2">
+                    </div>
+                </div>
+                <div class="navigation levels">
+                    <button class="nav-btn white" onclick="prevLevel(2)">Volver</button>
+                    <button class="nav-btn" id="level2-next" onclick="nextLevel(2)">Siguiente Comida</button>
+                </div>
+            </section>
+
+            <!-- Level 3 -->
+            <section id="level3" class="section">
+                <div class="title">Cena</div>
+                
+                <div class="level-container">
+                    <div class="food-bowl">
+                        <div class="food-container" id="foodLevel3">
+                        </div>
+                        <div class="food-controls">
+                            <button class="btn btn-decrease" onclick="decreaseFood(3)">-</button>
+                            <div class="food-indicator">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <button class="btn btn-increase" onclick="increaseFood(3)">+</button>
+                        </div>
+                    </div>
+                    <div class="dog-container instruction"></div>
+                    <div class="dog-container" id="dogLevel3">
+                    </div>
+                </div>
+                
+                <div class="navigation levels">
+                    <button class="nav-btn white" onclick="prevLevel(3)">Volver</button>
+                    <button class="nav-btn" id="level3-next" onclick="finishGame()">Finalizar Juego</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results" class="section result-section">
+                <div class="level-container final">
+                    <div class="dog-result">
+                        <svg width="50" height="50" id="result-dog-container">
+
+                        </svg>
+                        <!-- Result dog will be inserted here via JavaScript -->
+                    </div>
+
+                    <div class="result-container">
+                        <div class="result-title">¡JUMM!!</div>
+                        <div class="result-message">
+                            <h3 id="result-title">
+                                Lo Hiciste!
+                            </h3>
+                            <p id="result-message">
+                                Lo hiciste bien, pero... Tu mascota ha comido todo lo posible para poder llenar su pozo sin fondo. A veces cuando quieres satisfacer a tu mascota puedes terminar sobrealimentándola y eso no es bueno.
+                            </p>
+                        </div>
+                        <div class="recommendation">
+                            <!-- Vet Icon -->
+                            <svg width="92" height="143" viewBox="0 0 92 143" fill="none">
+                                <g clip-path="url(#clip0_97_512)">
+                                <path d="M29.2283 110.167C29.3763 110.979 51.2092 138.157 51.2092 138.157L76.828 113.647L67.3946 107.425L33.4582 104.018L29.2283 110.167Z" fill="white" stroke="#180027" stroke-width="2.43" stroke-linejoin="round"/>
+                                <path d="M54.2264 12.1443C55.0975 7.32972 47.7249 -0.391723 39.4415 0.0170598C28.6247 0.54507 23.2732 14.5799 26.1141 18.8835C29.9113 24.6348 52.8544 19.7919 54.2264 12.1499V12.1443Z" fill="#180027"/>
+                                <path d="M78.997 104.194C69.2732 118.518 32.3708 117.871 22.8918 102.979C18.4854 96.0297 23.2106 90.988 25.1064 73.3991C25.5505 69.3623 25.8408 64.684 25.8408 59.1541V58.558C25.7839 44.8524 23.9962 39.2146 28.0042 30.5848C29.2225 27.9731 35.1547 15.21 48.2032 12.78C59.8284 10.6226 71.5448 17.7138 76.5205 26.497C81.4792 35.229 77.1695 41.0712 76.4351 59.103C76.4237 59.5175 76.4066 59.9319 76.3953 60.3578C76.2415 65.2745 76.4067 69.561 76.7539 73.3025C78.3878 90.9029 83.9272 96.9097 78.997 104.194Z" fill="white" stroke="#180027" stroke-width="2.43" stroke-miterlimit="10"/>
+                                <path d="M71.0892 53.8968C64.3999 53.8968 58.2343 50.1326 55.1885 44.2506C52.8543 45.335 50.3437 45.8801 47.7192 45.8801C44.6848 45.8801 41.7187 45.1193 39.0885 43.6715C36.1452 49.9055 29.8771 53.8911 22.8917 53.8911C13.0256 53.8911 4.99268 45.8858 4.99268 36.0409C4.99268 26.1961 13.0199 18.1908 22.8917 18.1908C25.9375 18.1908 28.9036 18.9515 31.5338 20.3993C34.4771 14.154 40.7451 10.1627 47.7135 10.1627C49.9508 10.1627 52.1313 10.5715 54.1922 11.3834C56.6117 10.1968 59.3159 9.57227 62.0372 9.57227C68.886 9.57227 75.1768 13.5182 78.1486 19.6499C84.7412 22.4716 88.9825 28.8759 88.9825 36.0466C88.9825 45.8858 80.9553 53.8968 71.0835 53.8968H71.0892Z" fill="#180027"/>
+                                <path d="M62.043 10.265C68.9544 10.265 74.9093 14.3244 77.642 20.1836C83.9044 22.7555 88.2937 28.8873 88.2937 36.041C88.2937 45.5168 80.591 53.1985 71.0893 53.1985C64.1893 53.1985 58.2343 49.1504 55.5073 43.3195C55.5073 43.3195 55.513 43.3252 55.5187 43.3252C55.5244 43.3252 55.5301 43.3139 55.5358 43.3082C55.5358 43.3082 55.5301 43.3139 55.5244 43.3139C55.513 43.3139 55.5073 43.3025 55.496 43.2968C55.496 43.2968 55.496 43.3082 55.5073 43.3252C53.1675 44.5289 50.5202 45.1931 47.7192 45.1931C44.4343 45.1931 41.3771 44.279 38.7697 42.695C36.1794 48.8722 30.0422 53.2098 22.8917 53.2098C13.39 53.2098 5.68729 45.5281 5.68729 36.0523C5.68729 26.5765 13.39 18.8948 22.8917 18.8948C26.1766 18.8948 29.2509 19.8089 31.8526 21.3929C34.443 15.2158 40.5687 10.8668 47.7135 10.8668C50.0135 10.8668 52.2167 11.321 54.2264 12.1499C56.5663 10.9463 59.2249 10.2706 62.0373 10.2706M62.043 8.88532C59.3217 8.88532 56.6118 9.48713 54.1695 10.634C52.1086 9.86753 49.9452 9.47578 47.7192 9.47578C40.7224 9.47578 34.4088 13.3479 31.2321 19.4569C28.6645 18.1738 25.8123 17.4981 22.8974 17.4981C12.6442 17.4981 4.30957 25.8157 4.30957 36.0353C4.30957 46.2548 12.6499 54.5724 22.8974 54.5724C29.9056 54.5724 36.2249 50.706 39.396 44.6027C41.9635 45.8858 44.8101 46.5614 47.7192 46.5614C50.2242 46.5614 52.6266 46.0788 54.8811 45.1307C58.1432 50.9104 64.3601 54.5781 71.0893 54.5781C81.3425 54.5781 89.6771 46.2605 89.6771 36.041C89.6771 28.6772 85.3732 22.0913 78.661 19.1162C75.5299 12.8823 69.0682 8.87964 62.043 8.87964V8.88532Z" fill="white"/>
+                                <path d="M23.501 88.7966C23.6376 91.0676 24.0304 93.4635 22.8918 94.1221C22.1916 94.5309 21.2579 94.0199 20.2787 93.6622C18.4626 93.0036 16.9767 91.6694 16.1171 89.9604C14.6767 90.9143 13.0827 91.5218 11.3406 91.6183C7.57177 91.8397 2.92053 89.7106 0.979192 85.6796C-0.575016 82.432 -0.210659 78.4975 1.58835 75.8291C3.01731 73.717 5.06682 72.8427 5.92647 72.4453C16.2025 67.6364 19.0319 52.5512 22.8975 53.1984C26.097 53.7378 27.3495 64.65 25.8921 73.1209C25.4708 75.5679 24.8673 77.5664 24.372 78.9801C23.4213 83.1644 23.37 86.4858 23.5124 88.7909L23.501 88.7966Z" fill="#180027"/>
+                                <path d="M45.4023 86.219C46.3986 88.4673 48.6417 89.8924 51.0328 89.8129C53.1734 89.7447 55.1318 88.4843 56.1281 86.5369" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M51.0327 67.9033C53.7711 67.5854 55.9914 69.5385 56.128 71.537C56.276 73.6887 54.0216 76.079 51.0327 75.7837" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M58.3995 63.4749H46.4099" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M51.1068 133.609C56.1508 127.245 61.1949 120.875 66.2389 114.51C72.0857 109.128 76.3384 107.073 78.9914 108.339C83.4149 110.451 83.4149 121.772 78.9914 142.307C69.6946 142.307 60.3979 142.307 51.1011 142.307V133.604L51.1068 133.609Z" fill="#CBC5F2" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M51.1068 133.609C45.3796 127.245 39.6467 120.875 33.9194 114.51C28.9038 108.77 25.2261 106.363 22.8976 107.294C18.8499 108.912 18.8499 120.585 22.8976 142.313H60.5174C57.3806 139.412 54.2437 136.51 51.1068 133.609Z" fill="#CBC5F2" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M33.1621 75.8349C40.4975 75.8349 46.444 69.9046 46.444 62.5892C46.444 55.2738 40.4975 49.3435 33.1621 49.3435C25.8267 49.3435 19.8801 55.2738 19.8801 62.5892C19.8801 69.9046 25.8267 75.8349 33.1621 75.8349Z" fill="white" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M69.4155 75.8349C76.7509 75.8349 82.6974 69.9046 82.6974 62.5892C82.6974 55.2738 76.7509 49.3435 69.4155 49.3435C62.0801 49.3435 56.1335 55.2738 56.1335 62.5892C56.1335 69.9046 62.0801 75.8349 69.4155 75.8349Z" fill="white" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M31.9211 64.0767C32.462 62.5381 33.8568 61.4651 35.4452 61.3742C37.1929 61.272 38.8382 62.3735 39.4417 64.0767" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M64.1267 64.0767C64.6676 62.5381 66.0624 61.4651 67.6507 61.3742C69.3985 61.272 71.0438 62.3735 71.6473 64.0767" stroke="#180027" stroke-width="2.43" stroke-linecap="round" stroke-linejoin="bevel"/>
+                                <path d="M22.8976 107.294C24.281 106.965 27.8791 106.522 33.1565 110.735C35.7412 123.566 36.931 129.476 39.51 142.313H60.5174C63.1704 129.425 67.2694 123.685 69.9224 110.797C71.8979 109.718 76.0538 107.839 80.1642 109.23C86.0167 111.206 88.0036 118.53 89.7172 124.843C90.7192 128.534 91.8578 134.575 91.0095 142.313H7.99316C8.82435 135.307 10.3899 129.317 12.0694 124.44C15.1266 115.532 17.5177 108.583 22.8976 107.3V107.294Z" fill="white" stroke="#180027" stroke-width="2.43" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_97_512">
+                                <rect width="92" height="143" fill="white"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                                
+                            <div class="block-results">
+                                <h3>Recomendación</h3>
+                                <p>Te recomendamos acercarte a tu veterinario más cercano para poder darte una guía de nutrición específica para tu perrito y de esta manera controlar su alimentación y su peso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation levels">
+                    <button class="nav-btn white" onclick="restartGame()">Volver al menú</button>
+                    <button class="nav-btn" onclick="document.location='level-sleep.html'">Ir al siguiente nivel</button>
+                </div>
+            </section>
+        </div>
+    </section>
 
     <script src="../assets/js/food.js"></script>
     <script src="../assets/js/get_items.js"></script>
+    <script src="../assets/js/level_1/get_svg_level_1.js"></script>
 </body>
 </html>

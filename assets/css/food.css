@@ -1,222 +1,501 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Code Variable';
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e6e6fa;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100dvh;
+    background: linear-gradient(to bottom, var(--lightblue) 60%, var(--green) 40%);
+}
+
+.container {
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .game-container {
-    width: 500px;
-    height: 400px;
-    background-color: white;
-    border-radius: 20px;
-    border: 2px solid white;
-    overflow: hidden;
     position: relative;
-}
-
-.screen {
     width: 100%;
+    max-width: 1440px;
+    padding: 4rem;
     height: 100%;
-    position: absolute;
+    border-radius: 20px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, #e6e6fa 60%, #98FB98 40%);
-    transition: opacity 0.5s;
+    background: linear-gradient(180deg, rgba(247, 247, 247, 0.20) -56.38%, rgba(255, 255, 255, 0.20) 100%);
+    border: 8px solid var(--white);
+    backdrop-filter: blur(10px);
+    border: solid 4px var(--white);
+    overflow: hidden;
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
+.section {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+}
+#instructions {
+    height: auto;
+}
+
+.section.active {
+    display: flex;
+}
+
+
+.level-container {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+
+    &.final{
+        align-items: start;
+    }
+}
+.title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.instruction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.instruction-text {
+    background-color: var(--white);
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0;
+}
+.background-span{
+    padding: 0rem 0.5rem;
+    background-color: var(--darkpurple);
+    color: var(--white);
+
+    &.purple{
+        color: var(--pink);
+    }
+
+    &.pink{
+        background-color: var(--pink);
+        color: var(--white);
+
+        &.purple{
+            color: var(--darkpurple);
+            font-weight: 600;
+        }
+    }
+}
+
+.dog-container {
+    position: absolute;
+    width: 25rem;
+    right: 16%;
+    bottom: -10%;
+    
+    
+    &.instruction {
+        right: auto;
+        bottom: auto;
+        margin: 20px 0;
+        position: relative;
+    }
+}
+
+.dog-result {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & svg{
+        width: 100%;
+        max-height: 40rem;
+    }
+}
+
+.food-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    & img{
+        width: 100%;
+    }
+}
+
+.food-bowl {
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 8rem;
+    overflow: hidden;
+}
+
+.food-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #CD5C5C;
+    transition: height 0.3s ease;
+}
+
+.food-controls {
+    display: flex;
+    align-items: center;
+    background-color: var(--darkpurple);
+    padding: 1rem 2rem;
+    border-radius: 16px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    color: var(--darkpurple);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 150ms ease-in-out;
+    border: solid 2.5px var(--darkpurple);
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 4px 4px 0px 0px var(--lightblue);
+    }
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-decrease {
+    background-color: var(--pink);
+}
+
+.btn-increase {
+    background-color: var(--green);
+    
+}
+
+.food-indicator {
+    display: flex;
+    margin: 0 15px;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--white);
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.navigation {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 20;
+
+    &.levels{
+        justify-content: space-between;
+    }
+}
+
+.nav-btn {
+    text-decoration: none;
+    background-color: var(--pink);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 2rem;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    border: solid 1.5px var(--darkpurple);
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 0px 0px var(--darkpurple);
+    }
+
+    &.white{
+        background-color: var(--white);
+        color: var(--darkpurple);
+        border: solid 1.5px var(--darkpurple);
+    }
+}
+
+
+.nav-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.result-section {
+    text-align: center;
+}
+
+.result-container{
+    width: 100%;
+    gap: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.result-title {
+    color: var(--pink);
+    text-align: start;
+    text-shadow: 7px 6px 0px var(--darkpurple);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--darkpurple);
+    font-family: Rubik;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.result-message {
+    overflow: scroll;
+    text-align: start;
+    background-color: var(--white);
+    margin-bottom: 20px;
+    width: 100%;
+
+    & h3 {
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 2rem;
+    }
+}
+
+
+.recommendation {
+    display: flex;
+    color: var(--darkpurple);
+    justify-content: start;
+    align-items: start;
+    position: relative;
+    gap: 1rem;
+
+    & p {
+        text-align: start;
+    }
+
+    & h3 {
+        text-align: start;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 2rem;
+    }
+}
+
+.block-results {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    background-color: var(--white);
+}
+
+.vet-icon {
+    width: 100%;
 }
 
 .dog {
     width: 150px;
     height: 150px;
-    margin-bottom: 20px;
+    margin: 0 auto;
 }
 
-.info-text {
-    text-align: center;
-    width: 80%;
-    margin-bottom: 20px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.highlight {
-    background-color: #ff6b6b;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 5px;
-}
-
-.food-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Dog SVG styles */
+.dog-svg {
     width: 100%;
+    height: 100%;
 }
 
-.food-bowl {
-    width: 100px;
-    height: 60px;
-    background-color: white;
-    border-radius: 50% 50% 15% 15%;
-    border: 2px solid #333;
+.dog-body {
+    fill: #FF7F50;
+}
+
+.dog-ear {
+    fill: #8B4513;
+}
+
+.dog-nose {
+    fill: #222;
+}
+
+.dog-eye {
+    fill: #222;
+}
+
+.dog-mouth {
+    fill: none;
+    stroke: #222;
+    stroke-width: 2;
+}
+
+.dog-collar {
+    fill: #87CEFA;
+}
+
+.dog-belly {
+    fill: #FFC0CB;
+}
+
+.dog-paw {
+    fill: #222;
+}
+
+/* Dog states */
+.dog-hungry {
+    transform: scale(1);
+}
+
+.dog-satisfied {
+    transform: scale(1.1);
+}
+
+.dog-full {
+    transform: scale(1.2);
+}
+
+.dog-ending-hungry {
+    transform: rotate(0deg);
+}
+
+.dog-ending-satisfied {
+    transform: rotate(0deg) scale(1.1);
+}
+
+.dog-ending-full {
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Progress bar */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
     margin-bottom: 20px;
-    position: relative;
     overflow: hidden;
 }
 
-.food {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #CD5C5C;
-    transition: height 0.3s;
+.progress-bar {
+    height: 20px;
+    background-color: var(--pink-button);
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+    position: relative;
 }
 
-.food-level {
-    height: 0px; /* Will be controlled by JS */
-}
-
-.bone {
+.progress-text {
     position: absolute;
-    width: 30px;
-    height: 15px;
-    background-color: #333;
-    border-radius: 5px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-.bone:before, .bone:after {
-    content: '';
+/* Food particles animation */
+.food-particles {
     position: absolute;
-    width: 15px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #CD5C5C;
+    border-radius: 50%;
+    animation: particleFall 1s ease-in forwards;
+    opacity: 0;
+}
 
-.dog-container{
-    position: relative;
-
-    & svg{
-        width: 8em;
-        height: 8em;
+@keyframes particleFall {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) scale(1);
+        opacity: 0;
     }
 }
 
-
-.bone:before {
-    left: -7px;
-    top: -2px;
-}
-
-.bone:after {
-    right: -7px;
-    top: -2px;
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.btn {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: none;
-    font-size: 20px;
-    margin: 0 15px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-}
-
-.minus-btn {
-    background-color: #ff6b6b;
-}
-
-.plus-btn {
-    background-color: #4cd137;
-}
-
-.feed-btn {
-    background-color: #ff6b6b;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-weight: bold;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.level-indicator {
-    display: flex;
-    justify-content: space-between;
-    width: 60px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ccc;
-}
-
-.active {
-    background-color: #333;
-}
-
-.result-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: #ff6b6b;
-    margin-bottom: 10px;
-}
-
-.result-message {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 80%;
-}
-
-.recommendation {
-    background-color: #4cd137;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 80%;
-    margin-bottom: 20px;
-}
-
-.navigation {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.nav-btn {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    .game-container {
+        padding: 20px;
+        min-height: 400px;
+    }
+    
+    .title {
+        font-size: 20px;
+        padding: 8px 20px;
+    }
+    
+    .dog-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .result-title {
+        font-size: 28px;
+    }
 }

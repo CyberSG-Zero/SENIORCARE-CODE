@@ -6,6 +6,8 @@
     <title>Selector</title>
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/selector.css">
+
+    <link rel="icon" type="image/x-icon" href="../assets/svg/favicon.svg">
 </head>
 <body>
     <section class="section">
@@ -18,13 +20,13 @@
                     </header>
                     
                     <div class="dog-selector">
-                        <div class="dog-option" data-dog="labrador">
+                        <!-- <div class="dog-option" data-dog="labrador">
                             <div class="dog-img" style="background-image: url('../assets/images/selector/labrador.png')"></div>
                             <div class="dog-name">
                                 Labrador
                                 <div class="hover-bg"></div>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <div class="dog-option" data-dog="dachshund">
                             <div class="dog-img" style="background-image: url('../assets/images/selector/daschsund.png')"></div>
@@ -68,192 +70,36 @@
                     </div>
                 </div>
     
-                <div class="block center">
-                    <div class="mascot">
-                        <div class="green-circle"></div>
-                        <svg class="dog-svg" viewBox="0 0 150 150">
-                            <!-- Partes comunes a todas las razas -->
-                            <g class="dog-common">
-                                <!-- Círculo verde (base) -->
-                                <ellipse cx="75" cy="140" rx="50" ry="10" fill="#4de886" opacity="0.6" />
-                                
-                                <!-- Nariz (común) -->
-                                <ellipse cx="75" cy="65" rx="8" ry="5" fill="black" />
-                                
-                                <!-- Boca (común) -->
-                                <path d="M75 70 Q 75 75 65 73" fill="none" stroke="black" stroke-width="1.5" />
-                                <path d="M75 70 Q 75 75 85 73" fill="none" stroke="black" stroke-width="1.5" />
-                                
-                                <!-- Ojos (comunes) -->
-                                <circle cx="65" cy="55" r="3" fill="black" />
-                                <circle cx="85" cy="55" r="3" fill="black" />
-                                
-                                <!-- Collar (común) -->
-                                <path d="M55 75 Q 75 85 95 75" fill="none" stroke="#ff5a76" stroke-width="5" />
-                            </g>
-                            
-                            <!-- Labrador -->
-                            <g class="dog-part" id="labrador">
-                                <!-- Cuerpo -->
-                                <ellipse cx="75" cy="100" rx="40" ry="30" fill="#F7D08A" />
-                                
-                                <!-- Cabeza -->
-                                <circle cx="75" cy="60" r="25" fill="#F7D08A" />
-                                
-                                <!-- Orejas -->
-                                <path d="M55 45 Q 45 30 60 35" fill="#E8C170" />
-                                <path d="M95 45 Q 105 30 90 35" fill="#E8C170" />
-                                
-                                <!-- Cola -->
-                                <path class="dog-tail" d="M115 90 Q 130 80 135 95" fill="#F7D08A" stroke="#E8C170" stroke-width="3" />
-                            </g>
-                            
-                            <!-- Dachshund -->
-                            <g class="dog-part" id="dachshund">
-                                <!-- Cuerpo alargado -->
-                                <ellipse cx="75" cy="100" rx="50" ry="20" fill="#8B4513" />
-                                
-                                <!-- Cabeza -->
-                                <circle cx="75" cy="65" r="20" fill="#8B4513" />
-                                
-                                <!-- Hocico alargado -->
-                                <ellipse cx="75" cy="72" rx="15" ry="8" fill="#8B4513" />
-                                
-                                <!-- Orejas caídas -->
-                                <path d="M60 50 Q 50 65 60 70" fill="#703600" />
-                                <path d="M90 50 Q 100 65 90 70" fill="#703600" />
-                                
-                                <!-- Patas cortas -->
-                                <rect x="55" y="115" width="8" height="15" rx="4" fill="#8B4513" />
-                                <rect x="87" y="115" width="8" height="15" rx="4" fill="#8B4513" />
-                                
-                                <!-- Cola -->
-                                <path class="dog-tail" d="M125 100 Q 135 95 130 110" fill="#8B4513" />
-                            </g>
-                            
-                            <!-- Pitbull -->
-                            <g class="dog-part" id="pitbull">
-                                <!-- Cuerpo principal (adaptado del segundo SVG) -->
-                                <ellipse cx="75" cy="100" rx="45" ry="30" fill="#CBC5F2" />
-                                
-                                <!-- Pecho ancho -->
-                                <ellipse cx="75" cy="105" rx="40" ry="25" fill="#FFFFFF" />
-                                
-                                <!-- Cabeza -->
-                                <circle cx="75" cy="60" r="22" fill="#CBC5F2" />
-                                
-                                <!-- Mandíbula fuerte -->
-                                <path d="M60 70 Q 75 80 90 70" fill="#FFFFFF" />
-                                
-                                <!-- Orejas recortadas (inspiradas en el segundo SVG) -->
-                                <path d="M58 45 L 55 35 L 65 40" fill="#CBC5F2" />
-                                <path d="M92 45 L 95 35 L 85 40" fill="#CBC5F2" />
-                                
-                                <!-- Cola fuerte -->
-                                <path class="dog-tail" d="M118 95 Q 130 85 125 105" fill="#CBC5F2" stroke="#180027" stroke-width="2" />
-                                
-                                <!-- Patas -->
-                                <rect x="60" y="120" width="8" height="15" rx="4" fill="#CBC5F2" />
-                                <rect x="82" y="120" width="8" height="15" rx="4" fill="#CBC5F2" />
-                            </g>
-                            
-                            <!-- Poodle -->
-                            <g class="dog-part" id="poodle">
-                                <!-- Cuerpo -->
-                                <ellipse cx="75" cy="100" rx="35" ry="30" fill="#F5F5F5" />
-                                
-                                <!-- Pelo esponjoso -->
-                                <path d="M40 100 Q 45 70 65 85 Q 75 65 85 85 Q 105 70 110 100" fill="#F5F5F5" />
-                                
-                                <!-- Cabeza redondeada -->
-                                <circle cx="75" cy="60" r="22" fill="#F5F5F5" />
-                                
-                                <!-- Pelo esponjoso en cabeza -->
-                                <path d="M55 45 Q 45 30 60 25 Q 75 15 90 25 Q 105 30 95 45" fill="#F5F5F5" />
-                                
-                                <!-- Decoración de pelo en patas -->
-                                <ellipse cx="55" cy="115" rx="8" ry="15" fill="#F5F5F5" />
-                                <ellipse cx="95" cy="115" rx="8" ry="15" fill="#F5F5F5" />
-                                
-                                <!-- Cola decorativa -->
-                                <circle cx="115" cy="90" r="12" fill="#F5F5F5" />
-                            </g>
-                            
-                            <!-- Chihuahua -->
-                            <g class="dog-part" id="chihuahua">
-                                <!-- Cuerpo pequeño -->
-                                <ellipse cx="75" cy="105" rx="25" ry="20" fill="#D2B48C" />
-                                
-                                <!-- Cabeza redondeada grande -->
-                                <circle cx="75" cy="65" r="28" fill="#D2B48C" />
-                                
-                                <!-- Orejas grandes triangulares -->
-                                <polygon points="50,45 45,20 65,35" fill="#D2B48C" />
-                                <polygon points="100,45 105,20 85,35" fill="#D2B48C" />
-                                
-                                <!-- Patas pequeñas -->
-                                <rect x="65" y="120" width="6" height="10" rx="3" fill="#D2B48C" />
-                                <rect x="79" y="120" width="6" height="10" rx="3" fill="#D2B48C" />
-                                
-                                <!-- Cola en arco -->
-                                <path class="dog-tail" d="M95 95 Q 110 85 105 75" fill="#D2B48C" />
-                            </g>
-                            
-                            <!-- German Shepherd -->
-                            <g class="dog-part" id="german_shepherd">
-                                <!-- Cuerpo fuerte -->
-                                <ellipse cx="75" cy="100" rx="40" ry="30" fill="#D5A353" />
-                                
-                                <!-- Cabeza -->
-                                <circle cx="75" cy="60" r="23" fill="#252525" />
-                                
-                                <!-- Hocico alargado -->
-                                <path d="M75 70 Q 75 85 95 70" fill="#252525" />
-                                
-                                <!-- Orejas puntiagudas -->
-                                <polygon points="58,40 50,15 68,30" fill="#252525" />
-                                <polygon points="92,40 100,15 82,30" fill="#252525" />
-                                
-                                <!-- Patrón de color negro y marrón -->
-                                <path d="M75 75 Q 90 90 110 85 Q 100 100 75 110 Q 50 100 40 85 Q 60 90 75 75" fill="#252525" />
-                                <path d="M45 85 Q 75 100 105 85 Q 90 105 75 120 Q 60 105 45 85" fill="#D5A353" />
-                                
-                                <!-- Cola larga -->
-                                <path class="dog-tail" d="M110 90 Q 130 80 135 100" fill="#252525" stroke="#D5A353" stroke-width="1" />
-                            </g>
-                            
-                            <!-- Default dog (se muestra cuando no hay selección) -->
-                            <g class="dog-part active" id="default-dog">
-                                <!-- Cuerpo -->
-                                <ellipse cx="75" cy="100" rx="40" ry="30" fill="white" />
-                                
-                                <!-- Cabeza -->
-                                <circle cx="75" cy="60" r="25" fill="white" />
-                                
-                                <!-- Orejas -->
-                                <path d="M55 45 Q 50 25 60 40" fill="#3d2463" />
-                                <path d="M95 45 Q 100 25 90 40" fill="#3d2463" />
-                                
-                                <!-- Manchas -->
-                                <path d="M95 90 Q 110 85 100 110 Q 85 120 80 110 Z" fill="#3d2463" />
-                                
-                                <!-- Cola -->
-                                <path class="dog-tail" d="M115 90 Q 130 80 135 95" fill="white" stroke="#3d2463" stroke-width="3" />
-                            </g>
-                        </svg>
-                    </div>
+                <div class="mascot">
+                    
+                    <svg class="dog-part" id="pitbull" width="341" height="398" preserveAspectRatio="xMidYMid meet" fill="none">
+                        <use xlink:href="../../assets/svg/dogs.svg#pitbull" />
+                    </svg>
+                    <svg class="dog-part" id="dachshund"width="341" height="398" viewBox="0 0 409 377" preserveAspectRatio="xMidYMid meet" fill="none">
+                        <use xlink:href="../../assets/svg/dogs.svg#dachshund" />
+                    </svg>
+                    <svg class="dog-part" id="chihuahua" width="341" height="398" preserveAspectRatio="xMidYMid meet" fill="none">
+                        <use xlink:href="../../assets/svg/dogs.svg#chihuahua" />
+                    </svg>
+                    <svg class="dog-part" id="poodle" width="341" height="398" preserveAspectRatio="xMidYMid meet" fill="none">
+                        <use xlink:href="../../assets/svg/dogs.svg#poodle" />
+                    </svg>
+                    <svg class="dog-part" id="german_shepherd" width="341" height="398" preserveAspectRatio="xMidYMid meet" fill="none">
+                        <use xlink:href="../../assets/svg/dogs.svg#german_shepherd" />
+                    </svg>
+                        
+                    <div class="green-circle"></div>   
                 </div>
+
             </div>
             
-
-
             <div class="button-row">
-                <button class="btn-back">
+                <a href="../index.html" class="btn-back">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M13.15 16.15L9.52499 12.525C9.44165 12.4417 9.38332 12.3583 9.34999 12.275C9.31665 12.1917 9.29999 12.1 9.29999 12C9.29999 11.9 9.31665 11.8083 9.34999 11.725C9.38332 11.6417 9.44165 11.5583 9.52499 11.475L13.15 7.85001C13.2 7.80001 13.2543 7.76268 13.313 7.73801C13.3717 7.71335 13.434 7.70068 13.5 7.70001C13.6333 7.70001 13.75 7.74601 13.85 7.83801C13.95 7.93001 14 8.05068 14 8.20001V15.8C14 15.95 13.95 16.071 13.85 16.163C13.75 16.255 13.6333 16.3007 13.5 16.3C13.4667 16.3 13.35 16.25 13.15 16.15Z" fill="white"/>
                     </svg>
                     Atrás
-                </button>
+                </a>
                 <button class="btn-continue" id="continueBtn" disabled>
                     Continuar
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -261,49 +107,65 @@
                     </svg>
                 </button>
             </div>
-
-            
-            
+ 
         </div>
         
     </section>
     
-    <div class="name-screen" id="nameScreen">
-        <div class="name-container">
-            <header>
-                <h1>¿CÓMO SE LLAMA TU MASCOTA?</h1>
-                <p class="subtitle">Escribe el nombre que tendrá tu perro</p>
-            </header>
-            
-            <div class="input-container">
-                <input type="text" id="dogName" placeholder="Escribe aquí el nombre" maxlength="20">
-            </div>
-            
-            <div class="button-row">
-                <button class="btn-back" id="backToBreed">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M13.15 16.15L9.52499 12.525C9.44165 12.4417 9.38332 12.3583 9.34999 12.275C9.31665 12.1917 9.29999 12.1 9.29999 12C9.29999 11.9 9.31665 11.8083 9.34999 11.725C9.38332 11.6417 9.44165 11.5583 9.52499 11.475L13.15 7.85001C13.2 7.80001 13.2543 7.76268 13.313 7.73801C13.3717 7.71335 13.434 7.70068 13.5 7.70001C13.6333 7.70001 13.75 7.74601 13.85 7.83801C13.95 7.93001 14 8.05068 14 8.20001V15.8C14 15.95 13.95 16.071 13.85 16.163C13.75 16.255 13.6333 16.3007 13.5 16.3C13.4667 16.3 13.35 16.25 13.15 16.15Z" fill="white"/>
+    <section class="section">
+        <div class="name-screen" id="nameScreen">
+            <div class="name-container">
+                <header class="name-header">
+                    <h1>¿CÓMO SE LLAMA TU MASCOTA?</h1>
+                    <p class="subtitle">Escribe el nombre que tendrá tu perro</p>
+                </header>
+                <div class="mascot mascot-name">
+                    <div class="green-circle"></div>
+                    <!-- SVG para la pantalla de nombre - se copiará el perrito seleccionado -->
+                    <svg class="dog-svg" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    width="250" height="250" 
+                    viewBox="0 0 250 250">
+
+                        <!-- El contenido se copiará dinámicamente desde el selector -->
                     </svg>
-                    Atrás
-                </button>
-                <button onclick="document.location='level-food.html'" class="btn-continue" id="finalConfirm" disabled>
-                    Continuar
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.85 7.84999L14.475 11.475C14.5583 11.5583 14.6167 11.6417 14.65 11.725C14.6833 11.8083 14.7 11.9 14.7 12C14.7 12.1 14.6833 12.1917 14.65 12.275C14.6167 12.3583 14.5583 12.4417 14.475 12.525L10.85 16.15C10.8 16.2 10.7457 16.2373 10.687 16.262C10.6283 16.2867 10.566 16.2993 10.5 16.3C10.3667 16.3 10.25 16.254 10.15 16.162C10.05 16.07 10 15.9493 10 15.8L10 8.19999C10 8.04999 10.05 7.92899 10.15 7.83699C10.25 7.74499 10.3667 7.69932 10.5 7.69999C10.5333 7.69999 10.65 7.74999 10.85 7.84999Z" fill="#180027"/>
+                </div>
+    
+                <div class="input-container">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
+                        <path d="M10.5 8.33333C9.4 8.33333 8.8475 8.68417 8.0575 9.93667L7.85416 10.2683L7.525 10.8417L7.4075 11.0533C7.2075 11.415 6.93166 11.6808 6.45833 12.005L6 12.3092C5.21666 12.8317 4.80666 13.2408 4.5775 13.9383C4.47416 14.22 4.41416 14.6492 4.41666 15.005C4.41666 16.4108 5.415 17.5 6.75 17.5L6.95166 17.495C7.05083 17.49 7.14666 17.4808 7.24666 17.4667L7.45333 17.4308L7.56333 17.4075L7.80583 17.3467L7.94083 17.3092L8.41583 17.1675L9.05166 16.965L9.43083 16.8517C9.8725 16.7267 10.2142 16.6667 10.5 16.6667C10.7867 16.6667 11.1275 16.7275 11.5692 16.8517L11.9483 16.965L12.585 17.1667L13.0592 17.3092L13.3192 17.3792C13.3997 17.3992 13.4756 17.4164 13.5467 17.4308L13.7533 17.4667C13.8533 17.4808 13.9492 17.49 14.0483 17.495L14.25 17.5C15.585 17.5 16.5833 16.4108 16.5833 15C16.5833 14.6442 16.5225 14.2175 16.4108 13.9117C16.2142 13.3083 15.8467 12.8925 15.1775 12.3867L14.9633 12.2283L14.5233 11.9117C13.9883 11.52 13.6875 11.2233 13.4792 10.8467L13.2542 10.4425L13.0442 10.0825C12.2017 8.66917 11.6958 8.33333 10.5 8.33333ZM16.9833 5.83333H16.9583C15.9425 5.85 15 6.72167 14.535 7.92C13.96 9.39917 14.245 11.02 15.4308 11.5308C15.6442 11.6217 15.87 11.6667 16.0983 11.6667C17.1242 11.6667 18.0817 10.7892 18.5508 9.58C19.1225 8.10167 18.8342 6.48 17.6542 5.97C17.4423 5.87976 17.2136 5.83327 16.9833 5.83333ZM8.02083 2.5C7.9275 2.5 7.86666 2.50167 7.79583 2.5125L7.71833 2.52583C6.44166 2.6975 5.72083 4.18333 5.96166 5.73833C6.18833 7.17583 7.18 8.33333 8.395 8.33333L8.55083 8.32917L8.62083 8.32083L8.6975 8.3075C9.975 8.13583 10.695 6.65 10.4542 5.095C10.2292 3.65583 9.2375 2.5 8.02083 2.5Z" fill="#180027"/>
+                        <path d="M12.9767 2.50005C11.7608 2.50005 10.7708 3.65672 10.5467 5.09422C10.305 6.65005 11.025 8.13588 12.3583 8.31672C12.4433 8.32783 12.5256 8.33338 12.605 8.33338C13.7633 8.33338 14.7242 7.27922 15.0025 5.93088L15.0367 5.73922C15.2783 4.18338 14.5583 2.69755 13.225 2.51672C13.1428 2.50498 13.0597 2.49941 12.9767 2.50005ZM4.01416 5.83338C3.78583 5.83338 3.56083 5.87838 3.35 5.96755C2.16167 6.48005 1.8775 8.10255 2.45166 9.58005C2.92083 10.7892 3.87666 11.6667 4.9025 11.6667C5.13083 11.6667 5.35583 11.6217 5.56666 11.5325C6.755 11.0201 7.03917 9.39755 6.465 7.92005C5.99583 6.71088 5.04 5.83338 4.01416 5.83338Z" fill="#180027"/>
                     </svg>
-                </button>
-            </div>
-            
-            <div class="mascot mascot-name">
-                <div class="green-circle"></div>
-                <!-- SVG para la pantalla de nombre - se copiará el perrito seleccionado -->
-                <svg class="dog-svg" id="name-screen-dog" viewBox="0 0 150 150">
-                    <!-- El contenido se copiará dinámicamente desde el selector -->
-                </svg>
+                        
+                    <input type="text" id="dogName" placeholder="Escribe aquí el nombre" maxlength="20">
+
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
+                        <path d="M10.5 8.33333C9.4 8.33333 8.8475 8.68417 8.0575 9.93667L7.85416 10.2683L7.525 10.8417L7.4075 11.0533C7.2075 11.415 6.93166 11.6808 6.45833 12.005L6 12.3092C5.21666 12.8317 4.80666 13.2408 4.5775 13.9383C4.47416 14.22 4.41416 14.6492 4.41666 15.005C4.41666 16.4108 5.415 17.5 6.75 17.5L6.95166 17.495C7.05083 17.49 7.14666 17.4808 7.24666 17.4667L7.45333 17.4308L7.56333 17.4075L7.80583 17.3467L7.94083 17.3092L8.41583 17.1675L9.05166 16.965L9.43083 16.8517C9.8725 16.7267 10.2142 16.6667 10.5 16.6667C10.7867 16.6667 11.1275 16.7275 11.5692 16.8517L11.9483 16.965L12.585 17.1667L13.0592 17.3092L13.3192 17.3792C13.3997 17.3992 13.4756 17.4164 13.5467 17.4308L13.7533 17.4667C13.8533 17.4808 13.9492 17.49 14.0483 17.495L14.25 17.5C15.585 17.5 16.5833 16.4108 16.5833 15C16.5833 14.6442 16.5225 14.2175 16.4108 13.9117C16.2142 13.3083 15.8467 12.8925 15.1775 12.3867L14.9633 12.2283L14.5233 11.9117C13.9883 11.52 13.6875 11.2233 13.4792 10.8467L13.2542 10.4425L13.0442 10.0825C12.2017 8.66917 11.6958 8.33333 10.5 8.33333ZM16.9833 5.83333H16.9583C15.9425 5.85 15 6.72167 14.535 7.92C13.96 9.39917 14.245 11.02 15.4308 11.5308C15.6442 11.6217 15.87 11.6667 16.0983 11.6667C17.1242 11.6667 18.0817 10.7892 18.5508 9.58C19.1225 8.10167 18.8342 6.48 17.6542 5.97C17.4423 5.87976 17.2136 5.83327 16.9833 5.83333ZM8.02083 2.5C7.9275 2.5 7.86666 2.50167 7.79583 2.5125L7.71833 2.52583C6.44166 2.6975 5.72083 4.18333 5.96166 5.73833C6.18833 7.17583 7.18 8.33333 8.395 8.33333L8.55083 8.32917L8.62083 8.32083L8.6975 8.3075C9.975 8.13583 10.695 6.65 10.4542 5.095C10.2292 3.65583 9.2375 2.5 8.02083 2.5Z" fill="#180027"/>
+                        <path d="M12.9767 2.50005C11.7608 2.50005 10.7708 3.65672 10.5467 5.09422C10.305 6.65005 11.025 8.13588 12.3583 8.31672C12.4433 8.32783 12.5256 8.33338 12.605 8.33338C13.7633 8.33338 14.7242 7.27922 15.0025 5.93088L15.0367 5.73922C15.2783 4.18338 14.5583 2.69755 13.225 2.51672C13.1428 2.50498 13.0597 2.49941 12.9767 2.50005ZM4.01416 5.83338C3.78583 5.83338 3.56083 5.87838 3.35 5.96755C2.16167 6.48005 1.8775 8.10255 2.45166 9.58005C2.92083 10.7892 3.87666 11.6667 4.9025 11.6667C5.13083 11.6667 5.35583 11.6217 5.56666 11.5325C6.755 11.0201 7.03917 9.39755 6.465 7.92005C5.99583 6.71088 5.04 5.83338 4.01416 5.83338Z" fill="#180027"/>
+                    </svg>
+                </div>
+                
+                <div class="button-row">
+                    <button class="btn-back" id="backToBreed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13.15 16.15L9.52499 12.525C9.44165 12.4417 9.38332 12.3583 9.34999 12.275C9.31665 12.1917 9.29999 12.1 9.29999 12C9.29999 11.9 9.31665 11.8083 9.34999 11.725C9.38332 11.6417 9.44165 11.5583 9.52499 11.475L13.15 7.85001C13.2 7.80001 13.2543 7.76268 13.313 7.73801C13.3717 7.71335 13.434 7.70068 13.5 7.70001C13.6333 7.70001 13.75 7.74601 13.85 7.83801C13.95 7.93001 14 8.05068 14 8.20001V15.8C14 15.95 13.95 16.071 13.85 16.163C13.75 16.255 13.6333 16.3007 13.5 16.3C13.4667 16.3 13.35 16.25 13.15 16.15Z" fill="white"/>
+                        </svg>
+                        Atrás
+                    </button>
+                    <button onclick="document.location='level-food.html'" class="btn-continue" id="finalConfirm" disabled>
+                        Continuar
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.85 7.84999L14.475 11.475C14.5583 11.5583 14.6167 11.6417 14.65 11.725C14.6833 11.8083 14.7 11.9 14.7 12C14.7 12.1 14.6833 12.1917 14.65 12.275C14.6167 12.3583 14.5583 12.4417 14.475 12.525L10.85 16.15C10.8 16.2 10.7457 16.2373 10.687 16.262C10.6283 16.2867 10.566 16.2993 10.5 16.3C10.3667 16.3 10.25 16.254 10.15 16.162C10.05 16.07 10 15.9493 10 15.8L10 8.19999C10 8.04999 10.05 7.92899 10.15 7.83699C10.25 7.74499 10.3667 7.69932 10.5 7.69999C10.5333 7.69999 10.65 7.74999 10.85 7.84999Z" fill="#180027"/>
+                        </svg>
+                    </button>
+                </div>
+                
             </div>
         </div>
-    </div>
+    </section>
 
     <script src="../assets/js/selector.js"></script>
+    <script src="../assets/js/set_items.js"></script>
 </body>
 </html>

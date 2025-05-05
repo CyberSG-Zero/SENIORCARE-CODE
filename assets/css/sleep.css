@@ -110,8 +110,9 @@ body {
     color: var(--darkpurple);
     background: #2d1a4e;
     border-radius: 24px;
-    padding: 30px;
+    padding: 1.225rem;
     width: 80%;
+    gap: 1.5rem;
     max-width: 600px;
     text-align: center;
     border: 8px solid var(--white);
@@ -126,7 +127,6 @@ body {
     font-family: 'Rubik', sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
-    margin-bottom: 20px;
 
     &.wrong {
         color: var(--pink);
@@ -138,8 +138,7 @@ body {
 }
 
 .popup-message {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.225rem;
     line-height: 1.2em;
     color: var(--darkpurple);
     background-color: var(--white);
@@ -152,17 +151,46 @@ body {
 
     &.purple{
         color: var(--pink);
+
+    }
+
+    &.pink{
+        background-color: var(--pink);
+        color: var(--white);
+    }
+    &.text-purple{
+        font-weight: 600;
+        background-color: var(--pink);
+        color: var(--darkpurple);
     }
 }
 
 .popup-recommendation {
-    margin-top: 20px;
-    padding: 15px;
+    display: flex;
     color: var(--darkpurple);
-    background: var(--white);
+    justify-content: start;
+    align-items: start;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 20px;
+    gap: 1rem;
 
-    line-height: 1.2em;
-    border-radius: 10px;
+    & p {
+        text-align: start;
+    }
+}
+
+.block-results {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    background-color: var(--white);
+
+    & h3 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 2rem;
+    }
 }
 
 .popup-buttons {
@@ -174,6 +202,7 @@ body {
 }
 
 .popup-button {
+    font-family: 'fira code variable';
     display: flex;
     align-items: center;
     padding: 0.875rem 1.5rem;
@@ -182,6 +211,7 @@ body {
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
+    font-weight: 500;
     transition: all 0.3s;
     border: solid 2.5px var(--white);
 }
@@ -281,6 +311,16 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 5;
+
+    & svg {
+        position: absolute;
+        width: 100%;
+        max-width: 5em;
+        height: 100%;
+        top: 0;
+        right: 0;
+        left: 15%;
+    }
 }
 
 .level-complete-screen {
@@ -313,6 +353,17 @@ body {
     gap: 4rem;
 }
 
+.final-title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 8rem;
+    color: var(--darkpurple);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--lightblue);
+    text-shadow: 7px 6px 0px var(--lightblue);
+
+}
+
 .final-message {
     color: var(--white);
     text-align: left;
@@ -321,10 +372,17 @@ body {
     border-radius: 15px;
     margin: 20px;
 }
-
-.final-title {
-    font-size: 2.5rem;
+.result-message {
+    overflow: scroll;
+    background-color: var(--white);
+    color: var(--darkpurple);
     margin-bottom: 20px;
+    width: 100%;
+
+    & h4 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 2rem;
+    }
 }
 
 .final-text {

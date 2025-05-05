@@ -1,33 +1,92 @@
 // Este script carga el perro seleccionado desde localStorage y lo muestra en el juego
 
 // Elementos del DOM
+const repeatDog = document.querySelector('.dog-svg');
 const instructionDogSVG = document.getElementById('instruction-dog');
 const gameDogSVG = document.getElementById('game-dog');
 const dogTemplates = document.getElementById('dogTemplates');
 
 // Cargar datos del perro
 document.addEventListener('DOMContentLoaded', function() {
-    loadSavedDog();
+    loadSavedDogId();
 });
 
+// Ejemplo de cómo se guardarían los datos (esto estaría en otra página/archivo)
+function saveDogSelection(breed, name) {
+    localStorage.setItem('selectedDogBreed', breed);
+    localStorage.setItem('dogName', name);
+    console.log(`Perro guardado: ${breed} llamado ${name}`);
+}
+
 // Función para cargar el perro guardado
-function loadSavedDog() {
-    // Obtener la raza guardada en localStorage
-    const savedBreed = localStorage.getItem('selectedDogBreed');
-    const dogName = localStorage.getItem('dogName');
+// function loadSavedDog() {
+//     // Obtener la raza guardada en localStorage
+//     const savedBreed = localStorage.getItem('selectedDogBreed');
+//     const dogName = localStorage.getItem('dogName');
     
-    // Si no hay perro guardado, mostrar un perro por defecto
-    if (!savedBreed) {
-        console.warn('No se encontró un perro guardado. Mostrando perro por defecto.');
-        showDefaultDog();
-        return;
+//     // Si no hay perro guardado, mostrar un perro por defecto
+//     if (!savedBreed) {
+//         console.warn('No se encontró un perro guardado. Mostrando perro por defecto.');
+//         showDefaultDog();
+//         return;
+//     }
+    
+//     console.log(`Cargando ${savedBreed} llamado ${dogName || 'sin nombre'}`);
+    
+//     // Mostrar el perro en ambas pantallas
+//     drawDog(instructionDogSVG, savedBreed);
+//     drawDog(gameDogSVG, savedBreed);
+// }
+
+// Función para cargar el ID desde localStorage y aplicarlo al SVG
+function loadSavedDogId() {
+    const savedDogId = localStorage.getItem('selectedDogId');
+    
+    if (savedDogId && repeatDog) {
+        // Actualizar la referencia del SVG con el ID guardado
+        
+        fetch('../assets/svg/dogs.svg')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el archivo SVG');
+                }
+                return response.text();
+            })
+            .then(svgContent => {
+                // Crear un elemento DOM temporal para manipular el SVG
+                const parser = new DOMParser();
+                const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
+                
+                // Obtener el símbolo específico por ID
+                const symbolElement = svgDoc.querySelector(`#${savedDogId}`);
+                
+                if (symbolElement) {
+                    // Crear un nuevo SVG que contendrá el símbolo
+                    const newSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+                    newSvg.setAttribute('viewBox', symbolElement.getAttribute('viewBox'));
+                    
+                    // Copiar el contenido del símbolo al nuevo SVG
+                    const symbolContent = Array.from(symbolElement.childNodes);
+                    symbolContent.forEach(node => {
+                        const importedNode = document.importNode(node, true);
+                        newSvg.appendChild(importedNode);
+                    });
+                    
+                    // Reemplazar el SVG anterior con el nuevo
+                    const dogSvgContainer = document.querySelector('.dog-svg');
+                    dogSvgContainer.parentNode.replaceChild(newSvg, dogSvgContainer);
+                    newSvg.classList.add('dog-svg'); // Mantener la clase
+                    
+                    console.log('SVG cargado dinámicamente:', savedDogId);
+                } else {
+                    console.error('No se encontró el símbolo con ID:', savedDogId);
+                }
+            })
+            .catch(error => {
+                console.error('Error al cargar el SVG:', error);
+            });
     }
-    
-    console.log(`Cargando ${savedBreed} llamado ${dogName || 'sin nombre'}`);
-    
-    // Mostrar el perro en ambas pantallas
-    drawDog(instructionDogSVG, savedBreed);
-    drawDog(gameDogSVG, savedBreed);
 }
 
 

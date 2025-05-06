@@ -390,6 +390,7 @@ input:focus {
     display: block;
     opacity: 1;
     animation: gentle-float 3s infinite ease-in-out;
+    height: 100%;
 }
 
 

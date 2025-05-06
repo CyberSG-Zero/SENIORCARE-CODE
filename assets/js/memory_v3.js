@@ -23,7 +23,7 @@
                     svg: `
                         <svg viewBox="0 0 100 100">
                             <path d="M30,30 L70,70 M30,70 L70,30" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                            <path d="M20,50 L80,50 M50,20 L50,80" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M20,50 L80,50 M50,20 L50,80" stroke="#180027" stroke-width="8" stroke-linecap="round"/>
                         </svg>
                     `
                 },
@@ -31,7 +31,7 @@
                     id: 4,
                     svg: `
                         <svg viewBox="0 0 100 100">
-                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#180027" stroke-width="8" stroke-linecap="round"/>
                         </svg>
                     `
                 },
@@ -39,7 +39,7 @@
                     id: 5,
                     svg: `
                         <svg viewBox="0 0 100 100">
-                            <path d="M20,45 C20,35 30,35 35,35 L30,25 C30,20 40,20 40,25 L45,35 C50,35 60,35 60,45 L50,55 L60,65 C60,75 50,75 45,75 L50,85 C50,90 40,90 40,85 L35,75 C30,75 20,75 20,65 L30,55 Z" fill="#000" stroke="none"/>
+                            <path d="M20,45 C20,35 30,35 35,35 L30,25 C30,20 40,20 40,25 L45,35 C50,35 60,35 60,45 L50,55 L60,65 C60,75 50,75 45,75 L50,85 C50,90 40,90 40,85 L35,75 C30,75 20,75 20,65 L30,55 Z" fill="#180027" stroke="none"/>
                         </svg>
                     `
                 }
@@ -48,9 +48,7 @@
         },
         {
             targetSvg: `
-                <svg viewBox="0 0 100 100">
-                    <path d="M30,40 C25,50 25,60 30,70 C40,75 45,70 50,65 C55,70 60,75 70,70 C75,60 75,50 70,40 C60,35 55,40 50,45 C45,40 40,35 30,40 Z" fill="#f8e2c8" stroke="#333" stroke-width="3"/>
-                </svg>
+                 <img src="../../assets/svg/level_3/sublevel_2/correct_teddy.svg" alt="Target Object" />
             `,
             cards: [
                 {
@@ -64,90 +62,67 @@
                 {
                     id: 2,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,40 C25,50 25,60 30,70 C40,75 45,70 50,65 C55,70 60,75 70,70 C75,60 75,50 70,40 C60,35 55,40 50,45 C45,40 40,35 30,40 Z" fill="#000" stroke="none"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_2/arrow.svg" alt="Bone" />
                     `
                 },
                 {
                     id: 3,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                            <path d="M20,50 L80,50 M50,20 L50,80" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_2/mop.svg" alt="Bone" />
                     `
                 },
                 {
                     id: 4,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_2/cross.svg" alt="Bone" />
                     `
                 },
                 {
                     id: 5,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M20,45 C20,35 30,35 35,35 L30,25 C30,20 40,20 40,25 L45,35 C50,35 60,35 60,45 L50,55 L60,65 C60,75 50,75 45,75 L50,85 C50,90 40,90 40,85 L35,75 C30,75 20,75 20,65 L30,55 Z" fill="#000" stroke="none"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_2/teddy.svg" alt="Bone" />
                     `
                 }
             ],
-            correctId: 2
+            correctId: 5
         },
         {
             targetSvg: `
-                <svg viewBox="0 0 100 100">
-                    <path d="M30,30 L70,70 M30,70 L70,30" stroke="#f8e2c8" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M20,50 L80,50 M50,20 L50,80" stroke="#f8e2c8" stroke-width="8" stroke-linecap="round"/>
-                </svg>
+                <img src="../../assets/svg/level_3/sublevel_3/correct_chicken.svg" alt="Target Object" />
             `,
             cards: [
                 {
                     id: 1,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,40 L70,40 C75,40 75,30 70,30 L60,30 C60,20 50,20 50,30 L40,30 C35,30 35,40 40,40 Z" fill="#000" stroke="none"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_3/thing.svg" alt="thing" />
                     `
                 },
                 {
                     id: 2,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,40 C25,50 25,60 30,70 C40,75 45,70 50,65 C55,70 60,75 70,70 C75,60 75,50 70,40 C60,35 55,40 50,45 C45,40 40,35 30,40 Z" fill="#000" stroke="none"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_3/thing.svg" alt="thing" />
                     `
                 },
                 {
                     id: 3,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                            <path d="M20,50 L80,50 M50,20 L50,80" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_3/thing.svg" alt="thing" />
                     `
                 },
                 {
                     id: 4,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#000" stroke-width="8" stroke-linecap="round"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_3/thing.svg" alt="thing" />
                     `
                 },
                 {
                     id: 5,
                     svg: `
-                        <svg viewBox="0 0 100 100">
-                            <path d="M20,45 C20,35 30,35 35,35 L30,25 C30,20 40,20 40,25 L45,35 C50,35 60,35 60,45 L50,55 L60,65 C60,75 50,75 45,75 L50,85 C50,90 40,90 40,85 L35,75 C30,75 20,75 20,65 L30,55 Z" fill="#000" stroke="none"/>
-                        </svg>
+                        <img src="../../assets/svg/level_3/sublevel_3/thing.svg" alt="thing" />
                     `
                 }
             ],
-            correctId: 3
+            correctId: 4
         }
     ],
     currentLevel: 0

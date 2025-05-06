@@ -307,6 +307,7 @@ body {
     width: 100%;
 
     & h3 {
+        font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
         font-weight: 700;
         font-size: 2rem;
@@ -327,6 +328,7 @@ body {
     }
 
     & h3 {
+        font-family: 'Rubik', sans-serif;
         text-align: start;
         margin-bottom: 10px;
         font-weight: 700;
@@ -340,6 +342,10 @@ body {
     align-items: start;
     width: 100%;
     background-color: var(--white);
+}
+
+.span-bold{
+    font-weight: 700;
 }
 
 .vet-icon {
@@ -474,6 +480,31 @@ body {
         transform: translateY(100px) scale(1);
         opacity: 0;
     }
+}
+
+svg #tail {
+    transform-origin: 730px 970px;
+    animation: dogTail 1s infinite ease-in-out;
+}
+
+@keyframes dogTail {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+}
+
+#Head {
+    animation: head-tilt 3s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes head-tilt {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-4deg); }
+    70% { transform: rotate(1deg); }
 }
 
 /* Responsive Styles */

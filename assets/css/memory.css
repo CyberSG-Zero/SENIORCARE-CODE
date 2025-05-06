@@ -89,6 +89,10 @@ body {
     }
 }
 
+.span-bold{
+    font-weight: 700;
+}
+
 .target-object {
     margin: 20px 0;
 
@@ -97,7 +101,7 @@ body {
     }
 }
 
-.btn {
+.btn, .verification-button {
     font-family: 'Fira Code';
     text-decoration: none;
     display: flex;
@@ -188,6 +192,7 @@ body {
     transition: all 0.2s ease;
     margin: 0 5px;
     flex-shrink: 0;
+    user-select: none;
 }
 
 .card:hover {
@@ -195,7 +200,7 @@ body {
 }
 
 .card.selected {
-    box-shadow: 10px 10px 0px 0px #180027, 0px 4px 20px 0px rgba(39, 0, 16, 0.25);
+    box-shadow: 10px 10px 0px 0px var(--darkpurple), 0px 4px 20px 0px rgba(39, 0, 16, 0.25);
 }
 
 .slider-nav {
@@ -481,18 +486,31 @@ body {
 }
 
 .result-message {
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: var(--white);
     margin-bottom: 20px;
     width: 100%;
+    max-height: 180px;
 
     & h3 {
+        font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
         font-weight: 700;
         font-size: 2rem;
     }
 }
+.result-message::-webkit-scrollbar {
+    width: 0.5rem; /* Altura de la barra de scroll */
+}
 
+.result-message::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+}
+
+.result-message::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+    margin: 4px;
+}
 
 .recommendation {
     display: flex;
@@ -507,6 +525,7 @@ body {
     }
 
     & h3 {
+        font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
         font-weight: 700;
         font-size: 2rem;
@@ -518,7 +537,22 @@ body {
     flex-direction: column;
     align-items: start;
     width: 100%;
+    overflow-y: scroll;
     background-color: var(--white);
+    max-height: 180px;
+}
+
+.block-results::-webkit-scrollbar {
+    width: 0.5rem; /* Altura de la barra de scroll */
+}
+
+.block-results::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+}
+
+.block-results::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+    margin: 4px;
 }
 
 .vet-icon {
@@ -526,6 +560,7 @@ body {
 }
 
 .game-over{
+    width: 100%;
     display: flex;
     gap: 4rem;
 }

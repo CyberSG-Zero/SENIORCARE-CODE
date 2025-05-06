@@ -180,18 +180,6 @@ body {
     }
 }
 
-.block-results {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-    background-color: var(--white);
-
-    & h3 {
-        font-family: 'Rubik', sans-serif;
-        font-size: 2rem;
-    }
-}
 
 .popup-buttons {
     width: 100%;
@@ -202,7 +190,7 @@ body {
 }
 
 .popup-button {
-    font-family: 'fira code variable';
+    font-family: 'Fira code';
     display: flex;
     align-items: center;
     padding: 0.875rem 1.5rem;
@@ -370,19 +358,58 @@ body {
     max-width: 800px;
     padding: 30px;
     border-radius: 15px;
-    margin: 20px;
 }
 .result-message {
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: var(--white);
     color: var(--darkpurple);
     margin-bottom: 20px;
     width: 100%;
+    max-height: 180px;
 
     & h4 {
         font-family: 'Rubik', sans-serif;
         font-size: 2rem;
     }
+}
+.result-message::-webkit-scrollbar {
+    width: 0.5rem; /* Altura de la barra de scroll */
+}
+
+.result-message::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+}
+
+.result-message::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+    margin: 4px;
+}
+
+.block-results {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    background-color: var(--white);
+    max-height: 180px;
+
+    & h3 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 2rem;
+    }
+}
+.block-results::-webkit-scrollbar {
+    width: 0.5rem; /* Altura de la barra de scroll */
+}
+
+.block-results::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+}
+
+.block-results::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+    margin: 4px;
 }
 
 .final-text {
@@ -451,4 +478,10 @@ body {
     width: 100px;
     height: 80px;
     margin-right: 20px;
+}
+.dog-result {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

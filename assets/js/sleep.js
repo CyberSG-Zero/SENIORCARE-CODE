@@ -9,19 +9,19 @@ const gameState = {
 // Audio elements
 const levelAudios = [
     [
-        { src: 'https://assets.mixkit.co/active_storage/sfx/2092/2092.wav', correct: true },
+        { src: '../../assets/sounds/radio_ost.mp3', correct: true },
         { src: 'https://assets.mixkit.co/active_storage/sfx/2016/2016.wav', correct: false },
         { src: 'https://assets.mixkit.co/active_storage/sfx/209/209.wav', correct: false }
     ],
     [
         { src: 'https://assets.mixkit.co/active_storage/sfx/2445/2445.wav', correct: false },
-        { src: 'https://assets.mixkit.co/active_storage/sfx/1791/1791.wav', correct: true },
+        { src: '../../assets/sounds/puppet_ost.mp3', correct: true },
         { src: 'https://assets.mixkit.co/active_storage/sfx/550/550.wav', correct: false }
     ],
     [
         { src: 'https://assets.mixkit.co/active_storage/sfx/2004/2004.wav', correct: false },
         { src: 'https://assets.mixkit.co/active_storage/sfx/875/875.wav', correct: false },
-        { src: 'https://assets.mixkit.co/active_storage/sfx/2091/2091.wav', correct: true }
+        { src: '../../assets/sounds/dog_ost.mp3', correct: true }
     ]
 ];
 

@@ -164,6 +164,9 @@ body {
         color: var(--darkpurple);
     }
 }
+.span-bold{
+    font-weight: 700;
+}
 
 .popup-recommendation {
     display: flex;
@@ -371,6 +374,10 @@ body {
         font-family: 'Rubik', sans-serif;
         font-size: 2rem;
     }
+    & p {
+        text-wrap: pretty;
+        text-align: start;
+    }
 }
 .result-message::-webkit-scrollbar {
     width: 0.5rem; /* Altura de la barra de scroll */
@@ -397,6 +404,10 @@ body {
     & h3 {
         font-family: 'Rubik', sans-serif;
         font-size: 2rem;
+    }
+    & p {
+        text-wrap: pretty;
+        text-align: start;
     }
 }
 .block-results::-webkit-scrollbar {

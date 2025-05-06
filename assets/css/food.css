@@ -12,7 +12,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100dvh;
-    background: linear-gradient(to bottom, var(--lightblue) 60%, var(--green) 40%);
+    background: radial-gradient(
+    ellipse 150% 70% at center bottom,
+    var(--green) 70%,
+    var(--lightblue) 60.5%
+    );
+    
 }
 
 .container {
@@ -133,12 +138,17 @@ body {
         margin: 20px 0;
         position: relative;
     }
+
+    & img {
+        animation: float 1s infinite ease-in-out
+    }
 }
 
 .dog-result {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & svg{
         width: 100%;
@@ -244,11 +254,12 @@ body {
 }
 
 .nav-btn {
+    font-size: 1rem;
     text-decoration: none;
     background-color: var(--pink);
     color: var(--white);
     border: none;
-    padding: 0.5rem 2rem;
+    padding: 0.8rem 2rem;
     border-radius: 16px;
     cursor: pointer;
     font-weight: bold;
@@ -292,26 +303,43 @@ body {
     text-shadow: 7px 6px 0px var(--darkpurple);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--darkpurple);
-    font-family: Rubik;
-    font-size: 6rem;
+    font-family: 'Rubik';
+    font-size: 8rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
 .result-message {
-    overflow: scroll;
+    overflow-y: scroll;
     text-align: start;
     background-color: var(--white);
     margin-bottom: 20px;
     width: 100%;
+    max-height: 180px;
 
     & h3 {
         font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 2.225rem;
     }
+    & p {
+        text-wrap: pretty;
+        text-align: start;
+    }
+}
+.result-message::-webkit-scrollbar {
+    width: 0.5rem; /* Altura de la barra de scroll */
+}
+
+.result-message::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+}
+
+.result-message::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+    margin: 4px;
 }
 
 
@@ -324,6 +352,7 @@ body {
     gap: 1rem;
 
     & p {
+        text-wrap: pretty;
         text-align: start;
     }
 
@@ -332,7 +361,7 @@ body {
         text-align: start;
         margin-bottom: 10px;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 2.225rem;
     }
 }
 
@@ -341,7 +370,21 @@ body {
     flex-direction: column;
     align-items: start;
     width: 100%;
+    overflow-y: scroll;
     background-color: var(--white);
+    max-height: 180px;
+}
+.block-results::-webkit-scrollbar {
+    width: 0.5rem; /* Altura de la barra de scroll */
+}
+
+.block-results::-webkit-scrollbar-thumb {
+    background-color: var(--darkpurple); /* Color del "thumb" de la barra */
+}
+
+.block-results::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
+    margin: 4px;
 }
 
 .span-bold{
@@ -496,7 +539,13 @@ svg #tail {
     }
 }
 
-#Head {
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+#head {
     animation: head-tilt 3s infinite ease-in-out;
     transform-origin: center;
 }

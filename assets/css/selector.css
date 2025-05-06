@@ -421,7 +421,7 @@ svg #tail {
     }
 }
 
-#Head {
+#head {
     animation: head-tilt 3s infinite ease-in-out;
     transform-origin: center;
 }

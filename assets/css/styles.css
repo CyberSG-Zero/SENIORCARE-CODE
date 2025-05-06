@@ -5,12 +5,23 @@ body {
 /* ---> NAV BAR */
 .header {
   position: fixed;
+  top: 0;
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(10px);
   z-index: 10;
+
+  &.black {
+    background-color: var(--darkpurple);
+    color: var(--white);
+  }
+  &.white {
+    background-color: rgba(203, 197, 242, 0.8);
+    background-blend-mode: lighten;
+    backdrop-filter: blur(10px);
+  }
 }
 .nav {
   display: flex;
@@ -22,6 +33,7 @@ body {
   & img{
     height: 6em;
   }
+
 }
 .tags{
     display: flex;
@@ -168,19 +180,34 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--darkpurple);
+
+  & svg{
+    width: 4em;
+    height: 4em;
+  }
+}
+
+.heading-container { 
+  border: solid 8px var(--white);
+  background-color: rgba(203, 197, 242, 0.3);
+  background-blend-mode: lighten;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 .slide-title {
   font-size: 3.5rem;
-  font-family: 'rubik';
-  font-weight: bold;
+  font-family: 'Rubik';
+  font-weight: 800;
   color: var(--darkpurple);
-  text-transform: uppercase;
   line-height: 1em;
   
   &.white{
-    color: var(--white);
+    color: var(--darkpurple);
     text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--lightblue);
+    text-shadow: 4px 4px 0px var(--lightblue);
   }
 
   &.card_title{
@@ -230,6 +257,17 @@ body {
     color: var(--darkpurple);
     &:hover{
       color: var(--darkpurple);
+    }
+  }
+
+  &.pink{
+    border: solid 2px var(--white);
+    color: var(--darkpurple);
+
+    &:hover{
+      color: var(--darkpurple);
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0px 0px var(--white);
     }
   }
   &:hover{

@@ -18,16 +18,24 @@
                 <!-- Target SVG will be here -->
             </div>
             <div class="instruction-container">
-                <p class="instruction-text">Encuentra el objeto <span class="highlight">dentro</span> de las cartas.</p>
+                <p class="instruction-text">Encuentra <span class="highlight">el objeto <span class="highlight-text">dentro</span></span> de las cartas.</p>
             </div>
-            <button class="btn white" id="start-button">Empezar</button>
+            <button class="btn white" id="start-button">Empezar ▶</button>
         </div>
         
         <!-- Selection Screen -->
         <div id="selection-screen" class="game-screen">
             
-            <div class="scroll-arrow left" id="scroll-left">◀</div>
-            <div class="scroll-arrow right" id="scroll-right">▶</div>
+            <div class="scroll-arrow left" id="scroll-left">
+                <svg width="32" height="32" viewBox="0 0 32 32">
+                    <path fill="currentColor" d="M20.834 8.037L9.64 14.5c-1.43.824-1.43 2.175 0 3l11.194 6.463c1.43.826 2.598.15 2.598-1.5V9.537c0-1.65-1.17-2.326-2.598-1.5" />
+                </svg>
+            </div>
+            <div class="scroll-arrow right" id="scroll-right">
+                <svg width="32" height="32" viewBox="0 0 32 32">
+                    <path fill="currentColor" d="M11.166 23.963L22.36 17.5c1.43-.824 1.43-2.175 0-3L11.165 8.037c-1.43-.826-2.598-.15-2.598 1.5v12.926c0 1.65 1.17 2.326 2.598 1.5z" />
+                </svg>
+            </div>
 
             <div class="cards-container" id="cards-grid">
                 <!-- Cards will be generated here -->
@@ -99,7 +107,7 @@
                             ¡Excelente Memoria!
                         </h3>
                         <p>
-                            A pesar de que las imágenes se volvieron un poco confusas, pudiste recordar los objetos. Mantener la mente activa es importante a cualquier edad. Para los perros mayores, los juegos suaves y la interacción pueden ayudar a estimular su función cognitiva.
+                            A pesar de que las imágenes se volvieron un poco confusas, pudiste recordar los objetos. Mantener <span class="span-bold">la mente activa</span> es importante a cualquier edad. <br><br>Para los perros mayores, los juegos suaves y la interacción pueden ayudar a estimular su <span class="span-bold">función cognitiva.</span>
                         </p>
                     </div>
                     <div class="recommendation">
@@ -132,7 +140,9 @@
                             
                         <div class="block-results">
                             <h3>Recomendación</h3>
-                            <p>Tu agilidad mental te ayudó a superar el desafío. Recuerda que, al igual que las imágenes se volvieron <span class="span-bold">menos claras,</span> un perro mayor puede <span class="span-bold">experimentar cambios</span> en su capacidad cognitiva. La paciencia y la comprensión son fundamentales para apoyarlo.</p>
+                            <p>
+                                Este ejercicio le ha permitido experimentar de una manera sutil <span class="span-bold">los desafíos que su perro mayor podría enfrentar con su memoria visual y reconocimiento.</span> <br><br>A medida que envejecen, es natural que su capacidad cognitiva disminuya. <span class="span-bold">Sea paciente y comprensivo con su mascota.</span> Observe si muestra dificultad para recordar órdenes que antes conocía, se desorienta en lugares familiares o tiene problemas para reconocer objetos cotidianos. Estos podrían ser signos de <span class="span-bold">un proceso de envejecimiento cognitivo</span> que requiere su apoyo y, en algunos casos, una <span class="span-bold">evaluación veterinaria</span> para explorar estrategias de manejo.
+                            </p>
                         </div>
                     </div>
                 </div>

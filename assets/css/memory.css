@@ -19,6 +19,9 @@ body {
 
     padding: 4rem 2rem;
     background-color: var(--pink);
+    background-image: url(../images/level-memory/background_cards.png);
+    background-position: center;
+    background-size: cover;
 }
 
 
@@ -127,6 +130,7 @@ body {
 }
 
 .btn:hover, .verification-button:hover {
+    transform: translateY(-4px);
     box-shadow: 7px 6px 0px 0px var(--darkpurple);
 }
 
@@ -228,6 +232,7 @@ body {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
+    border: solid 2px var(--darkpurple);
     background-color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -444,6 +449,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & svg {
+        animation: float 1s infinite ease-in-out;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
 .button-group {
@@ -496,7 +511,11 @@ body {
         font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 2.225rem;
+    }
+    & p {
+        text-wrap: pretty;
+        text-align: start;
     }
 }
 .result-message::-webkit-scrollbar {
@@ -521,6 +540,7 @@ body {
     gap: 1rem;
 
     & p {
+        text-wrap: pretty;
         text-align: start;
     }
 
@@ -528,7 +548,7 @@ body {
         font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 2.225rem;
     }
 }
 
@@ -553,6 +573,18 @@ body {
 .block-results::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1); /* Color del track de la barra */
     margin: 4px;
+}
+
+.highlight-text {
+    color: var(--pink);
+    margin-left: 5px;
+    font-weight: 650;
+}
+
+.highlight {
+    background-color: var(--darkpurple);
+    color: var(--white);
+    margin-left: 5px;
 }
 
 .vet-icon {

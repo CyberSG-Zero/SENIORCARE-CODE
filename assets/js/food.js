@@ -2,6 +2,7 @@
 
 const resultMessage = document.getElementById('result-message');    
 const resultTitle = document.getElementById('result-title');
+const recommentMessage = document.getElementById('recommentMessage');
 
 // Game state
 
@@ -179,6 +180,7 @@ function prevLevel(currentLevel) {
 function evaluateChoice() {
     let resultHead = '';
     let resultText = '';
+    let recommentMe = '';
     let accuracy = '';
 
     gameState.totalPoints = 
@@ -188,19 +190,23 @@ function evaluateChoice() {
     
     if (gameState.totalPoints >= 25 ) {
         resultHead = "Lo hiciste bien, pero...";
-        resultText = "Tu mascota comió toda la porción, pero podría ser mejor. A veces, cuando quieres satisfacer a tu mascota, es importante observar su comportamiento cuidadosamente.";
+        resultText = "Tu mascota comió toda la porción, pero podría ser mejor. A veces, cuando quieres <span class='span-bold'>satisfacer a tu mascota,</span> es importante observar su comportamiento cuidadosamente. <br><br>En la vejez, la actividad de tu perro puede disminuir, y darle más comida de la que necesita puede llevar al sobrepeso. El exceso de peso puede generar <span class='span-bold'>problemas articulares, cardíacos y otros problemas de salud.</span>";
+        recommentMe = "Noto que su perro ha consumido una cantidad <span class='span-bold'>excesiva de alimento.</span> Si bien una ocasión puntual no suele generar problemas graves, <span class='span-bold'>la sobrealimentación crónica</span> puede derivar en obesidad y otros problemas de salud a largo plazo. Monitoree si presenta signos de malestar gastrointestinal como vómitos o hinchazón abdominal. <br><br>En las próximas comidas, ajuste gradualmente la porción a la recomendada para <span class='span-bold'>su peso y nivel de actividad.</span> Si esto ocurre con frecuencia, le sugiero agendar una consulta para evaluar <span class='span-bold'>su plan de alimentación y descartar cualquier ansiedad</span> por la comida.";
         accuracy = "cerca";
         accuracy = "perfecta";
     } else if (gameState.totalPoints >= 15) {
         resultHead = "¡Lo hiciste perfecto!";
-        resultText = "Tu mascota está feliz con la cantidad de comida que le diste. Has demostrado que conoces bien a tu perro.";
+        resultText = "Tu mascota está feliz con la cantidad de comida que le diste. Has demostrado que conoces bien a tu perro. Mantener una <span class='span-bold'>porción adecuada</span> ayuda a tu perro a mantener un peso saludable, lo cual es crucial para su bienestar en la vejez. <br><br>Un peso equilibrado <span class='span-bold'>reduce el estrés</span> en sus articulaciones y órganos internos, contribuyendo a una mejor calidad de vida.";
+        recommentMe = "¡Excelente! Me alegra saber que su perro ha comido bien. Mantener una <span class='span-bold'>rutina de alimentación regular</span> y ofrecerle un alimento balanceado de alta calidad es fundamental para su salud y vitalidad. <br><br>Continúe observando <span class='span-bold'>su energía, la calidad de sus heces y su peso corporal</span> para asegurar que sus necesidades nutricionales se están cubriendo de manera óptima. No dude en consultarnos si tiene alguna pregunta sobre su alimentación a medida que envejece o si nota algún cambio en sus requerimientos.";
     } else {
         resultHead = "¡Ups!";
-        resultText = "Tu mascota no está contenta con la cantidad de comida. Es importante observar su estado de ánimo para determinar cuánta comida necesita.";
+        resultText = "Tu mascota <span class='span-bold'>no está contenta</span> con la cantidad de comida. Es importante observar su estado de ánimo para determinar cuánta comida necesita. <br><br>Es importante asegurarse de que tu perro mayor esté recibiendo suficientes nutrientes. Si bien sus <span class='span-bold'>necesidades calóricas pueden cambiar,</span> una porción demasiado pequeña podría llevar a <span class='span-bold'>la pérdida de peso y masa muscular,</span> lo cual también puede ser perjudicial.";
         accuracy = "incorrecta";
+        recommentMe = "Observo que su mascota no ha ingerido la cantidad usual de alimento. Esto puede deberse tanto a una <span class='span-bold'>falta de apetito, como al no darle los suficientes cantidad de nutrientes.</span> <br><br>Es crucial monitorear su apetito y estado general en <span class='span-bold'>las próximas 24-48 horas.</span> Asegúrese de ofrecerle agua fresca y un ambiente tranquilo. Si la inapetencia persiste, se acompaña de <span class='span-bold'>letargo, vómitos, diarrea</span> o cualquier otro signo de malestar, le recomiendo agendar una consulta veterinaria para evaluar las posibles causas subyacentes y establecer un plan de acción adecuado para asegurar su <span class='span-bold'>bienestar nutricional.</span>";
     }
     resultTitle.innerHTML = resultHead;
     resultMessage.innerHTML = resultText;
+    recommentMessage.innerHTML = recommentMe;
     return accuracy;
 }
 

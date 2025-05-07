@@ -54,6 +54,20 @@ body::before {
         justify-content: center;
         align-items: center;
     }
+    &.horizontal{
+        color: var(--pink);
+        max-width: 80%;
+        background-color: var(--darkpurple);
+        flex-direction: row;
+        align-items: center;
+        font-size: 0.875rem;
+        & svg { 
+          width: 10em;
+        }
+        & p{
+          color: var(--white);
+        }
+      }
 }
 
 header {

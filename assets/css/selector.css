@@ -15,9 +15,6 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
     z-index: -1;
 }
 
@@ -26,6 +23,8 @@ body::before {
     width: 100%;
     height: 100dvh;
     background-image: url(../images/home/Home.avif);
+    background-color: rgba(24, 0, 39, 0.24);
+    background-blend-mode: darken;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
@@ -72,7 +71,7 @@ h1 {
 
 .subtitle {
     font-size: 1rem;
-    color: #666;
+    color: var(--darkpurple);
     margin-bottom: 20px;
 }
 

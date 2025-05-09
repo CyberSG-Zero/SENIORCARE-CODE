@@ -40,7 +40,7 @@ function saveDogSelection(breed, name) {
 
 // Función para cargar el ID desde localStorage y aplicarlo al SVG
 function loadSavedDogId() {
-    const savedDogId = localStorage.getItem('selectedDogId');
+    const savedDogId = localStorage.getItem('selectedDogId') || 'pitbull';
     
     if (savedDogId && repeatDog) {
         // Actualizar la referencia del SVG con el ID guardado

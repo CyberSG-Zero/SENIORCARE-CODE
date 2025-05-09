@@ -58,7 +58,7 @@ function startGame() {
 
 // Update food level visualization
 function updateFoodLevel(level) {
-    const savedDogId = localStorage.getItem('selectedDogId');
+    const savedDogId = localStorage.getItem('selectedDogId') || 'pitbull';
     
     const foodContainer = document.getElementById(`foodLevel${level}`);
     const dogContainer = document.getElementById(`dogLevel${level}`);
@@ -178,7 +178,7 @@ function prevLevel(currentLevel) {
 
 // Evaluate the player's choice
 function evaluateChoice() {
-    const perritoID = localStorage.getItem('selectedDogId');
+    const perritoID = localStorage.getItem('selectedDogId') || 'pitbull';
 
     let resultHead = '';
     let resultText = '';

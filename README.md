@@ -20,7 +20,7 @@ Un juego interactivo donde se pondrá a prueba la forma en cómo alimentas a tu 
 Te encuentras dentro de una noche oscura, pero llena de ruidos que molestan el sueño de tu mascota. Debes buscar junto con tu linterna estos sonidos para poder detenerlos. Sin embargo, habrá un sonido que no te esperarás su origen.
 
 ### 3. 🧠 Memoria Cognitiva
-Un juego en la cual tendrás que encontrar el parecido de un objeto presentado anteriormente. Mientras más avances en el juego, verás como la forma se hace más compleja de reconocer y es allí donde tu habilidad para recordar se pone a prueba.
+Un juego en la cual tendrás que encontrar el parecido de un objeto presentado anteriormente dentro de una selección de cartas. Mientras más avances en el juego, verás como la forma se hace más compleja de reconocer y es allí donde tu habilidad para recordar se pone a prueba.
 
 ## 🛠️ Tecnologías Utilizadas
 

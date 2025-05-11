@@ -55,6 +55,7 @@ body::before {
         align-items: center;
     }
     &.horizontal{
+        display: none;
         color: var(--pink);
         max-width: 80%;
         background-color: var(--darkpurple);
@@ -449,4 +450,24 @@ svg #tail {
 @keyframes gentle-float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 980px) {
+
+    .section{
+        height: auto;
+    }
+    .block.horizontal{
+        max-width: none;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+
+    .selector-block{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
